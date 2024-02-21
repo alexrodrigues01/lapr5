@@ -1,0 +1,81 @@
+﻿@startuml
+autonumber
+
+participant "JogadorDto: \n dto" as DTOx
+
+participant ":JogadoresController" as CONTROLLER
+participant ":JogadorService" as SERVICE
+
+participant "JogadorDto: \n dto" as DTOx
+
+participant ":JogadorRepository" as REPO
+
+participant "var: \njogador" as VAR
+participant "IUnitOfWork: \n _unitOfWork" as UNIT
+
+participant "JogadorDto: \n newdto" as DTO
+
+?o-> CONTROLLER : PUT jogador/{utilizador} dados-jogador
+activate CONTROLLER
+    CONTROLLER -> SERVICE : UpdateAsync(dto)
+    activate SERVICE
+        SERVICE -> REPO : jogador = GetByIdAsync(dto.id)
+        activate REPO
+        deactivate REPO
+        SERVICE -> VAR : changeFields(dto)
+        activate VAR
+        deactivate VAR
+        SERVICE -> UNIT : CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERVICE -> DTO** : create(dto)
+        SERVICE --> CONTROLLER : newdto
+    deactivate SERVICE
+        [o<--\ CONTROLLER : OK (newdto))
+deactivate CONTROLLER
+
+@enduml
+
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":EditProfileComponent View" as CV
+participant ":EditProfileComponent" as C
+participant "dto: JogadorDTO" as DTO
+participant ":JogadorService" as SERV
+
+activate J
+    J->R : /account/profile/edit-profile/edit-profile
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : perfilForm()
+        activate C
+            C-->CV : perfilForm()
+        deactivate C
+        CV-->J : show perfilForm
+    deactivate CV
+    J->CV : atualiza dados jogador
+    activate CV
+        CV->C : atualizarDados()
+        activate C
+            C-->DTO ** : create()
+            C->SERV : atualizarDadosJogador(dto)
+            activate SERV
+                SERV->o] : PUT(.../api/jogadores,dto)
+                SERV<--/o] : Sucesso(newDTO)
+                SERV-->C : Sucesso
+            deactivate SERV
+            C-->CV : Sucesso
+        deactivate C
+        CV-->J : Sucesso
+    deactivate CV
+deactivate J             
+
+@enduml

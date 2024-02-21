@@ -1,0 +1,37 @@
+﻿@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:Container>> Visualização" as vis
+participant "<<C4:Container>> Rede Social" as rede
+
+activate jog
+
+jog -> vis: Inicia a criação do post
+
+activate vis
+vis --> jog: solicita os dados necessários para o post (texto e tags)
+deactivate vis
+
+jog -> vis : insere os dados 
+activate vis
+vis->vis: localValidateInformation(texto, tags) 
+vis --> jog : mostra o post a publicar
+deactivate vis
+
+jog -> vis : pressiona o botão para publicar
+activate vis
+vis->rede: POST dados post
+activate rede 
+rede-> rede: serverDataValidation (dados)
+rede->rede: createPost(dados)
+rede --> vis: Post publicado
+deactivate rede
+
+vis --> jog : mostra o post publicado
+deactivate vis
+
+deactivate jog
+
+
+@enduml

@@ -1,0 +1,37 @@
+﻿@startuml
+autonumber
+
+participant "JogadorDto: \n dto" as DTOx
+
+participant ":JogadoresController" as CONTROLLER
+participant ":JogadorService" as SERVICE
+
+participant "JogadorDto: \n dto" as DTOx
+
+participant ":JogadorRepository" as REPO
+
+participant "var: \njogador" as VAR
+participant "IUnitOfWork: \n _unitOfWork" as UNIT
+
+participant "JogadorDto: \n newdto" as DTO
+
+?o-> CONTROLLER : PUT jogador/{utilizador} dados-jogador
+activate CONTROLLER
+    CONTROLLER -> SERVICE : UpdateAsync(dto)
+    activate SERVICE
+        SERVICE -> REPO : jogador = GetByIdAsync(dto.id)
+        activate REPO
+        deactivate REPO
+        SERVICE -> VAR : changeFields(dto)
+        activate VAR
+        deactivate VAR
+        SERVICE -> UNIT : CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERVICE -> DTO** : create(dto)
+        SERVICE --> CONTROLLER : newdto
+    deactivate SERVICE
+        [o<--\ CONTROLLER : OK (newdto))
+deactivate CONTROLLER
+
+@enduml

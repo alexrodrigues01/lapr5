@@ -1,0 +1,36 @@
+@startuml
+autonumber
+
+actor "Jogador" as USER
+participant "<<C4:Sistema>>\n:Rede Social" as S
+
+USER -> S : Solicita visualização das suas relações
+activate USER
+activate S
+
+S --> USER : Mostra as relações
+deactivate S
+
+USER -> S : Seleciona relação
+activate S
+
+S --> USER : Solicita alteração das tags e da força de ligação
+deactivate S
+
+USER -> S : Altera as tags e a força de ligação
+
+activate S
+
+S --> USER : Solicita confirmação de alteração
+deactivate S
+
+USER -> S : Confirma alteração
+
+activate S
+
+S --> USER : Confirma alteração das tags e da força de ligação
+deactivate S
+
+
+
+@enduml

@@ -1,0 +1,42 @@
+﻿@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:Container>> Visualizacao" as c4
+participant "<<C4:Container>> Rede Social" as S
+
+activate jog
+
+jog -> c4: Solicita a lista de utilizadores sugeridos
+
+activate c4
+c4-> S: Get utilizadores sugeridos / {utilizador}
+activate S
+S--> c4 :utilizadoresSugeridos (JSON)
+deactivate S
+c4 --> jog: apresenta a lista de utlizadores sugeridos \n e solicita que selecione os que pretende como objetivo
+deactivate c4
+
+jog -> c4 : seleciona os utilizadores objetivo que pretende ter na sua rede        
+activate c4
+c4->S : Get utilizadores / {utilizadores}
+activate S
+S-->c4: utilizadores(JSON)
+deactivate S
+c4 --> jog : apresenta os utilizadores e solicita confirmação
+deactivate c4
+
+jog -> c4 : confirma a seleção
+activate c4
+c4->S : Post utilizadores/ {utilizadores} 
+activate S
+S->S :serverDataValidation(utilizadores)
+S->S : saveData(utilizadores)
+S-->c4 :202 OK
+c4 --> jog : confirma o sucesso da seleção dos utilizadores objetivo
+deactivate c4
+
+deactivate jog
+
+
+@enduml

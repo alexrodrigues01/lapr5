@@ -1,0 +1,29 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":JogadoresController" as CTRL
+participant ":JogadorService" as SERV
+participant "jogador \n : Jogador" as JOG
+participant ":JogadorRepository" as REPO
+participant ":UnitOfWork" as UNIT
+participant "newDTO: JogadorDTO" as DTO
+?o->CTRL : POST(.../api/Users,dto)
+activate CTRL
+    CTRL->SERV: AddAsync(dto)
+    activate SERV
+        SERV->JOG**: create(dto.nome, dto.telefone,dto.email,\ndto.dataNascimento, dto.morada)
+        SERV->  REPO: AddAsync(jogador)
+        activate REPO
+        deactivate REPO
+        SERV->UNIT: CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERV-> DTO**: create()
+        SERV--> CTRL : Success(newDTO)
+    deactivate SERV
+    <--CTRL: Success(newDTO)
+deactivate CTRL
+
+@enduml

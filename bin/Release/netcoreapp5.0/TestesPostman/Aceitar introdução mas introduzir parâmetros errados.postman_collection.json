@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "1ec9993b-768c-4a5f-a660-f56accf6b893",
+		"name": "Aceitar introdução mas introduzir parâmetros errados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Criar Jogador 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorE\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Ze\",\r\n    \"Email\" : \"ze@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Porto\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"ISEP,Praxe,Informática\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorF\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Manel\",\r\n    \"Email\" : \"manel@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Lisboa\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Informática,Anime,MCU\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pedido Ligação 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedido3\",response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" :  \"{{idJogadorE}}\"  ,\r\n    \"jogadorObjetivo\" :  \"{{idJogadorF}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aceitar Pedido Ligação c/ força errada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 400 Bad Request - fail\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Tags\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tagsRelacao).to.eql(undefined);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Ligacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaLigacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Data Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagsRelacao\" : \"Informática\",\r\n    \"ForcaLigacao\": \"101\",\r\n    \"DataRelacao\" : \"22/03/2001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/{{idPedido3}},decis1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								"{{idPedido3}},decis1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorG\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Maria\",\r\n    \"Email\" : \"maria@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Porto\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Instagram,Praxe,Fotografia\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorH\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Joana\",\r\n    \"Email\" : \"joana@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Lisboa\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Informática,Fotografia,YouTube\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pedido Ligação 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedido4\",response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" :  \"{{idJogadorG}}\"  ,\r\n    \"jogadorObjetivo\" :  \"{{idJogadorH}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aceitar Pedido Ligação c/ data errada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 400 Bad Request - fail\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Tags\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tagsRelacao).to.eql(undefined);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Ligacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaLigacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Data Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagsRelacao\" : \"Fotografia\",\r\n    \"ForcaLigacao\": \"77\",\r\n    \"DataRelacao\" : \"22-03-2001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/{{idPedido4}},decis1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								"{{idPedido4}},decis1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tear Down",
+			"item": [
+				{
+					"name": "Remover Jogador 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorE}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorE}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorF}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorF}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorG}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorG}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorH}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorH}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

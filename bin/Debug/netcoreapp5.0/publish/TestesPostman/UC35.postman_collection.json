@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "6d6e5cf6-add6-469e-9f5a-d24f1e29d2bb",
+		"name": "UC35",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Criar Jogador 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Miguel\");\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogador1\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Miguel\",\r\n    \"Email\" : \"miguel@gmail.com\",\r\n    \"Telefone\" : \"916666666\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua do Miguel\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4470\",\r\n    \"DataNascimento\" : \"28/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/miguel\",\r\n    \"FacebookLink\" : \"www.facebook.com/miguel\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"14/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Lola\");\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogador2\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Lola\",\r\n    \"Email\" : \"lola@gmail.com\",\r\n    \"Telefone\" : \"916123789\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua da Lola\",\r\n    \"Localidade\" : \"Lolalandia\",\r\n    \"CodigoPostal\" : \"4470\",\r\n    \"DataNascimento\" : \"28/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/lola\",\r\n    \"FacebookLink\" : \"www.facebook.com/lola\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"14/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Muax\");\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogador3\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Muax\",\r\n    \"Email\" : \"muax@gmail.com\",\r\n    \"Telefone\" : \"944666777\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua do Muax\",\r\n    \"Localidade\" : \"Aeroporto\",\r\n    \"CodigoPostal\" : \"4470\",\r\n    \"DataNascimento\" : \"28/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/muax\",\r\n    \"FacebookLink\" : \"www.facebook.com/muax\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"14/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar PedidoLigacao 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedidoLigacao1\", response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" : \"{{idJogador1}}\",\r\n    \"jogadorObjetivo\" :  \"{{idJogador2}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar PedidoLigacao 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedidoLigacao2\", response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" : \"{{idJogador1}}\",\r\n    \"jogadorObjetivo\" :  \"{{idJogador3}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PedidosLigacao Jogador 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/idjogador,{{idJogador1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"idjogador,{{idJogador1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TearDown",
+			"item": [
+				{
+					"name": "Remover Pedido Ligacao 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/{{idPedidoLigacao1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"{{idPedidoLigacao1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Pedido Ligacao 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/{{idPedidoLigacao2}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"{{idPedidoLigacao2}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogador1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogador1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogador2}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogador2}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogador3}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogador3}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,42 @@
+﻿@startuml
+
+autonumber
+
+participant ":PostRoute" as R
+participant ":PostController" as CTRL
+participant ":PostService" as SERV
+participant "post:Post" as P
+participant ":PostRepository" as REPO
+participant ":PostMap" as MAP
+participant "postPer:IPostPersistence" as PP
+participant ":Model<IPostPersistence & Document>" as MPP
+participant "newPost: Post" as NP
+participant "feed: IPostDTO[ ]" as DTO
+
+?o->R : GET(.../api/posts,req)
+activate R
+    R->CTRL: getPostsByUser(req)
+    activate CTRL
+        CTRL->SERV: getPostsByUser(user)
+        activate SERV           
+            SERV-> REPO: findByUtilizador(user)
+            activate REPO                
+                REPO->MPP: find(user)
+                activate MPP
+                deactivate MPP
+                REPO->MAP: toDomain(posts)
+                activate MAP
+                    MAP->NP**: create()
+                deactivate MAP  
+            deactivate REPO
+            SERV-> MAP: toDTO(posts)
+            activate MAP
+                MAP-> DTO**: create()
+            deactivate MAP
+            SERV--> CTRL : Success(feed)
+        deactivate SERV
+        CTRL-->R: Success(feed)
+    deactivate CTRL
+    <--R: Success(feed)
+deactivate R
+@enduml

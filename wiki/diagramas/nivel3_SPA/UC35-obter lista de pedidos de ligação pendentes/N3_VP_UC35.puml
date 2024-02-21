@@ -1,0 +1,38 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":PedidosComponent View" as CV
+participant ":PedidosObjetivoComponent" as C
+
+participant ":PedidoLigacaoService" as SERV
+
+activate J
+    J->R : /account/pedidos
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getPedidosLigacao()
+        activate C
+            C->SERV : getPedidosLigacaoPendentes()
+                activate SERV
+                    SERV->o] : GET(.../api/pedidosligacao/idjogador)
+                    SERV<--/o] : listaPedidosPendentes
+                    SERV-->C : listaPedidosPendentes
+                deactivate SERV
+            C-->CV : listaPedidosPendentes
+        deactivate C
+        CV-->J : show listaPedidosPendentes
+    deactivate CV
+deactivate J
+            
+        
+   
+        
+
+@enduml

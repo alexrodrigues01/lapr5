@@ -1,0 +1,21 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>SELECIONAR JOGADOR INTERMEDIO</h1>
+
+  <div *ngFor="let jogador of jogadores" >
+
+    <div class="objetivo">
+      <b>
+        Nome: {{jogador.nome}}
+        <p></p>
+        Email: {{jogador.email}}
+        <p></p>
+        Telefone: {{jogador.telefone}}
+        <p></p>
+        <input style="  margin-left: 25%" type="submit" class="fadeIn fourth" value="Selecionar como Jogador Intermedio" routerLink="/accounts/dadosIntroducao" (click)="guardarJogadorIntermedio(jogador.id.toString())"   >
+
+
+
+      </b>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:System>>\nSocial Network Game" as SYSTEM
+
+activate USER
+
+USER -> SYSTEM: solicita visualização da informação do seu perfil de utilizador
+
+activate SYSTEM
+
+SYSTEM --> USER: mostra perfil de user
+
+deactivate SYSTEM
+
+USER -> SYSTEM: altera dados do perfil
+
+activate SYSTEM
+
+SYSTEM --> USER: solicita confirmação da alteração
+
+deactivate SYSTEM
+
+USER -> SYSTEM: confirma alteração
+
+activate SYSTEM
+
+SYSTEM --> USER: confirma alteração de dados
+
+deactivate SYSTEM
+
+deactivate USER
+
+@enduml

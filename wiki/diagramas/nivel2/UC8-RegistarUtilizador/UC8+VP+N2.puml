@@ -1,0 +1,37 @@
+﻿@startuml
+
+actor "Utilizador Não registado" as jog
+
+participant "<<C4:Container>> Visualização" as vis
+participant "<<C4:Container>> Rede Social" as rede
+
+activate jog
+
+jog -> vis: Inicia o seu registo como utilizador
+
+activate vis
+vis --> jog: solicita os dados necessários para o registo (nome, \n telefone, email, data de nascimento, morada)
+deactivate vis
+
+jog -> vis : insere os dados 
+activate vis
+vis->vis: localValidateUserInformation(nome, password \n, telemovel,  email, dataNascimento,morada) 
+vis --> jog : solicita confirmação dos dados de registo
+deactivate vis
+
+jog -> vis : confirma os dados do registo
+activate vis
+vis->rede: POST dados utilizador
+activate rede 
+rede-> rede: serverDataValidation (dados)
+rede->rede: registarUtilizador(dados)
+rede --> vis: novo Utilizador
+deactivate rede
+
+vis --> jog : confirma o sucesso do registo como utilizador
+deactivate vis
+
+deactivate jog
+
+
+@enduml

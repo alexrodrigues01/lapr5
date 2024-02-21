@@ -1,0 +1,30 @@
+@startuml
+autonumber
+
+participant ":PedidosLigacaoController" as CONTROLLER
+participant ":PedidosLigacaoService" as SERVICE
+
+participant ":PedidosLigacao\n dto" as DTO
+
+participant ":PedidosLigacaoRepository" as REPOSITORY
+participant ":IUnitOfWork\n _unitOfWork" as UNIT
+
+participant ":PedidosLigacao\n newdto" as DTOx
+
+?o-> CONTROLLER : POST pedidosligacao/dto
+activate CONTROLLER
+    CONTROLLER -> SERVICE : addAsync(dto)
+    activate SERVICE
+        SERVICE -> REPOSITORY : addAsync(dto)
+        activate REPOSITORY
+        deactivate REPOSITORY
+        SERVICE -> UNIT : CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERVICE -> DTOx** : create(dto)
+    SERVICE --> CONTROLLER : newdto
+    deactivate SERVICE
+    <--CONTROLLER : 202 OK
+deactivate CONTROLLER
+
+@enduml

@@ -1,0 +1,66 @@
+﻿@startuml
+autonumber
+
+participant "Jogador" as USER
+participant "<<C4:System>>\nVisualização" as SYSTEM
+participant "<<C4:System>>\n Site Rs" as SITE
+
+activate USER
+
+USER -> SYSTEM: Prentende obter um jogado objetivo
+
+activate SYSTEM
+
+SYSTEM -> SITE : GetJogadorObjetivo()
+SITE --> SYSTEM : 202 OK
+
+SYSTEM --> USER: Sugere um jogador objetivo
+
+deactivate SYSTEM
+
+USER -> SYSTEM: Solicita um jogador intermédio para se ligar e chegar ao objetivo
+
+activate SYSTEM
+
+SYSTEM -> SITE : GetJogadorIntermedio()
+SITE --> SYSTEM : 202 OK
+
+SYSTEM --> USER: Mostra lista de jogadores intermédios possíveis
+
+deactivate SYSTEM
+
+USER -> SYSTEM: Escolhe o utilizador
+
+activate SYSTEM
+
+SYSTEM --> USER: Solicita texto de introdução
+
+deactivate SYSTEM
+
+USER -> SYSTEM: Preenche o texto de introdução
+
+activate SYSTEM
+
+SYSTEM --> USER: Solicita confirmação
+
+deactivate SYSTEM
+
+USER -> SYSTEM:  Confirma pedido de introdução
+
+activate SYSTEM
+
+SYSTEM -> SITE : Post Introducoes(pedido)
+activate SITE
+SITE->SITE :serverDataValidation(utilizadores)
+SITE->SITE : saveData(utilizadores)
+
+SITE --> SYSTEM : 202 OK
+deactivate SITE
+
+SYSTEM --> USER: Pedido realizado com sucesso
+
+deactivate SYSTEM
+
+
+deactivate USER
+@enduml

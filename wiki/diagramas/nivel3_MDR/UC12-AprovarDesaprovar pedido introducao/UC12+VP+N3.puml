@@ -1,0 +1,35 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":IntroducoesController" as CTRL
+participant ":IntroducaoService" as SERV
+participant ":IntroducaoRepository" as REPO
+participant "introducao :\n Introducao" as INTRO
+participant "pedidoLigacao: \n PedidoLigacao" as LIG
+participant ":UnitOfWork" as UNIT
+participant "newDTO: IntroducaoDTO" as DTO
+?o->CTRL : DELETE(.../api/introducoes,dto,aprovacao)
+activate CTRL
+    CTRL->SERV: DeleteAsync(dto,aprovacao)
+    activate SERV
+        SERV->REPO: GetByIdAsync(dto.Id)
+        activate REPO
+        deactivate REPO
+        SERV->REPO: Remove(introducao)
+        activate REPO
+        deactivate REPO
+        alt aprovacao==true
+        SERV->LIG**: create()
+        end
+        SERV->UNIT : CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERV->DTO**: create()
+           SERV--> CTRL : Success(newDTO)
+    deactivate SERV
+    <--CTRL: Success(newDTO)
+deactivate CTRL
+
+@enduml

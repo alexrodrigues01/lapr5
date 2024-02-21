@@ -1,0 +1,27 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>ALGORITMOS</h1>
+
+  <hr>
+  <h2 style="margin-left: 19%"> Calcular a força de ligação entre dois jogadores </h2>
+  <input type="text" id="nível" class="fadeIn second" name="email utilizador" placeholder="email utilizador" style="margin-left: 6%" [(ngModel)]="emailForcaLigacao">
+  <input type="submit" class="fadeIn fourth" value="Obter tamanho" style="margin-left: 33%" (click)="getForcaLigacao()" >
+  <input type="text" id="tamanho da rede" class="fadeIn second" name="tamanho da rede" placeholder="força de ligação : {{forcaLigacao}}" style="margin-left: 6%" >
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 24%"> Obter numero de ligações até o segundo nível </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter Numero ligacoes" style="margin-left: 30%" (click)="getLigacoesSegundoN()"  >
+  <input type="text" id="utilizadores" class="fadeIn second" name="utilizadores"  placeholder="numero de ligações: {{ligacoesSegundoN}}  " style="margin-left: 6%">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 15%"> Somatório da força de ligação da sua rede até ao primeiro nível  </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter Somatório da força" style="margin-left: 26%" (click)="getForcaPrimeiroN()"  >
+  <input type="text" id="sugestoes" class="fadeIn second" name="utilizadores" placeholder="somatório : {{forcaLigacaoPrimeiroN}}" style="margin-left: 6%">
+  <hr>
+
+
+
+
+
+</div>

@@ -1,0 +1,44 @@
+﻿@startuml
+
+autonumber
+
+participant "PedidosLigacaoController" as controller
+participant "PedidosLigacaoService" as service
+participant "dto:\nPedidoLigacaoDto" as introducao
+participant ":PedidosLigacaoRepository" as rep
+participant ":DbSet<PedidosLigacao>" as db
+participant ":UnitOfWork" as u
+participant "newDTO:PedidoLigacaoDto" as dto
+participant "lista:List<PedidosLigacaoDto>" as lista
+
+
+activate controller
+
+?o->controller : Post(.../api/PedidosLigacao,jogadoresId)
+
+activate service
+controller->service: AddAsync(jogadorId,jogadoresObjetivoId)
+
+service->lista**:create()
+loop
+service->introducao**:create()
+service->rep:pedidoLigacao=AddAsync(pedidoLigacao)
+activate rep
+deactivate rep
+service->dto**:create()
+service->service:lista.add(dto)
+end
+
+
+
+service->u : CommitAsync()
+activate u
+deactivate u
+
+
+service-->controller:Success(lista)
+
+<--controller
+
+
+@enduml

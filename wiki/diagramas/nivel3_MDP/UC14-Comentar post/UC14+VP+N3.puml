@@ -1,0 +1,84 @@
+﻿@startuml
+
+autonumber
+
+participant ":ComentarioRoute" as R
+participant ":ComentarioController" as CTRL
+participant ":ComentarioService" as SERV
+participant "comentario:Comentario" as C
+participant ":ComentarioRepository" as REPO
+participant ":ComentarioMap" as MAP
+participant "comentarioPer:IComentarioPersistence" as CP
+participant ":Model<IComentarioPersistence & Document>" as MCP
+participant "newComentario: Comentario" as NC
+participant "newComDTO: IComentarioDTO" as DTO
+
+participant ":PostService" as PSERV
+participant "post:Post" as P
+participant ":PostRepository" as PREPO
+participant ":PostMap" as PMAP
+participant "postPer:IPostPersistence" as PP
+participant ":Model<IPostPersistence & Document>" as MPP
+participant "newPost: Post" as NP
+participant "newPostDTO: IPostDTO" as PDTO
+
+?o->R : POST(.../api/comentarios,req)
+activate R
+    R->CTRL: createComentario(req)
+    activate CTRL
+        CTRL->SERV: createComentario(dto)
+        activate SERV
+            SERV-> C**: create(dto)
+            SERV-> REPO: save(comentario)
+            activate REPO
+                REPO->MAP: toPersistence(comentario)
+                activate MAP
+                    MAP->CP**: create()
+                deactivate MAP
+                REPO->MCP: create(comentarioPer)
+                activate MCP
+                deactivate MCP
+                REPO->MAP: toDomain(comentarioPer)
+                activate MAP
+                    MAP->NC**: create()
+                deactivate MAP  
+            deactivate REPO
+            SERV-> MAP: toDTO(newComentario)
+            activate MAP
+                MAP-> DTO**: create()
+            deactivate MAP
+            SERV--> CTRL : Success(newComDTO)
+        deactivate SERV
+        CTRL->PSERV: addComentario(dto)
+        activate PSERV
+            PSERV-> PREPO: findById(dto.post)
+            activate PREPO                                         
+                PREPO->PMAP: toDomain(post)
+                activate PMAP
+                deactivate PMAP                    
+            deactivate PREPO
+            PSERV-> PREPO: save(post)
+            activate PREPO
+                PREPO->PMAP: toPersistence(post)
+                activate PMAP
+                    PMAP->PP**: create()
+                deactivate PMAP
+                PREPO->MPP: create(postPer)
+                activate MPP
+                deactivate MPP
+                PREPO->PMAP: toDomain(postPer)
+                activate PMAP
+                    PMAP->NP**: create()
+                deactivate PMAP  
+            deactivate PREPO
+            PSERV-> PMAP: toDTO(newPost)
+            activate PMAP
+               PMAP-> PDTO**: create()
+            deactivate PMAP
+            PSERV--> CTRL : Success(newPostDTO)
+        deactivate PSERV
+        CTRL-->R: Success(newComDTO)
+    deactivate CTRL
+    <--R: Success(newComDTO)
+deactivate R
+@enduml

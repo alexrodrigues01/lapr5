@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+
+
+circle jogador as "UI Jogador"
+circle nao_aut as "UI Utilizador Não autenticado"
+circle aut as "UI Utilizador Autenticado"
+
+component social_net as "<<C4:System>> \n Social Network Game"
+
+jogador - social_net
+nao_aut - social_net
+aut -social_net
+
+
+
+@enduml

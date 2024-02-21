@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=28fad32d_002Dc713_002D44da_002D8090_002D8f400007a6f3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetGetById" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.RelacoesControllerTest.GetGetById&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.RelacoesControllerTest.Update&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.RelacoesControllerTest.HardDelete&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.JogadorServiceTest.GetAllAsync&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.JogadorServiceTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CD9ADDB-47D0-AD8E-4C3F-CF5AB2B957E9::net5.0::DDDSample1.TestesUnitarios.PedidoLigacaoServiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+</wpf:ResourceDictionary>

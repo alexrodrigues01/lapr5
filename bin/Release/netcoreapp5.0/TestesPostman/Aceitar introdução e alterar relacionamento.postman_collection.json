@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "e9718328-af7c-4752-ba29-754a58502aaa",
+		"name": "Aceitar introdução e alterar relacionamento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Criar Jogador 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorA\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Anti Comissao de Praxe de Informatica\",\r\n    \"Email\" : \"harry@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"ISEP,Praxe,BMW,NBA\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorB\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Tomás\",\r\n    \"Email\" : \"limbado@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Sto Tirso\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"ISEP,Praxe,NFL,NBA\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pedido Ligação 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedido1\",response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" :  \"{{idJogadorA}}\"  ,\r\n    \"jogadorObjetivo\" :  \"{{idJogadorB}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pedido Ligação 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/{{idPedido1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								"{{idPedido1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aceitar Pedido Ligação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Tags\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tagsRelacao).to.eql(\"ISEP,Praxe,NBA\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Ligacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaLigacao).to.eql(55)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaRelacao).to.eql(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Data Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataRelacao).to.eql(\"22/03/2001\")\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idRelacao1\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagsRelacao\" : \"ISEP,Praxe,NBA\",\r\n    \"ForcaLigacao\": \"55\",\r\n    \"DataRelacao\" : \"22/03/2001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/{{idPedido1}},decis1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								"{{idPedido1}},decis1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Relação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/relacoes/{{idRelacao1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"relacoes",
+								"{{idRelacao1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Relação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Tags\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tagsRelacao).to.eql(\"AntiCPI,BatismoAgora\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Ligacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaLigacao).to.eql(80)\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{idRelacao1}}\",\r\n    \"jogadorA\": \"{{idJogadorA}}\",\r\n    \"jogadorB\": \"{{idJogadorB}}\",\r\n    \"tagsRelacao\": \"AntiCPI,BatismoAgora\",\r\n    \"forcaLigacao\": 80,\r\n    \"forcaRelacao\": 0,\r\n    \"dataRelacao\": \"22/03/2001 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/relacoes/{{idRelacao1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"relacoes",
+								"{{idRelacao1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tear Down",
+			"item": [
+				{
+					"name": "Remover Relação 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/relacoes/{{idRelacao1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"relacoes",
+								"{{idRelacao1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorA}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorA}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorB}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorB}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

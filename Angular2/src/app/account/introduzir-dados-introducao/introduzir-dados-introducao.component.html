@@ -1,0 +1,11 @@
+<div style="background: white;width: 900px;height: 500px;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>INTRODUZIR MENSAGENS INTRODUCAO</h1>
+
+  <form style="margin-top: 12%" >
+    <input  type="text" id="tags" class="fadeIn second" name="tags" placeholder="mensagem jogador intermedio"
+            [(ngModel)]="novaIntroducao.mensagemIntroducaoIntermedio">
+    <input type="text" id="forcaLigacao" class="fadeIn second" name="forcaLigacao" placeholder="mensagem jogador objetivo"
+           [(ngModel)]="novaIntroducao.mensagemIntroducaoObjetivo">
+    <input style="  margin-left: 30%" type="submit" class="fadeIn fourth" value="Enviar pedido Introducao" (click)="criarPedidoIntroducao()">
+  </form>
+</div>

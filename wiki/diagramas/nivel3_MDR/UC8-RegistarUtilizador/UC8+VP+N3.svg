@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="494px" preserveAspectRatio="none" style="width:1120px;height:494px;background:#FFFFFF;" version="1.1" viewBox="0 0 1120 494" width="1120px" zoomAndPan="magnify"><defs><filter height="300%" id="f96aebymynzby" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="322.5859" style="stroke:#A80036;stroke-width:1.0;" width="10" x="174" y="91.5703"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="261.8828" style="stroke:#A80036;stroke-width:1.0;" width="10" x="327" y="121.9219"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="758.5" y="216.4922"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="886" y="276.8438"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="179" x2="179" y1="59.2188" y2="432.1563"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="332" x2="332" y1="59.2188" y2="432.1563"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="642" x2="642" y1="172.0313" y2="432.1563"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="763" x2="763" y1="59.2188" y2="432.1563"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="891" x2="891" y1="59.2188" y2="432.1563"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1029" x2="1029" y1="348.1484" y2="432.1563"/><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="104" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="111" y="44.1426">:JogadoresController</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="104" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="111" y="452.6895">:JogadoresController</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="272" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="279" y="44.1426">:JogadorService</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="272" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="279" y="452.6895">:JogadorService</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="77" x="602" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="614.5" y="452.6895">jogador</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="613" y="470.2988">: Jogador</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="137" x="693" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="700" y="44.1426">:JogadorRepository</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="137" x="693" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="700" y="452.6895">:JogadorRepository</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="844" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="851" y="44.1426">:UnitOfWork</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="844" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="851" y="452.6895">:UnitOfWork</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="158" x="948" y="431.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="955" y="452.6895">newDTO: JogadorDTO</text><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="322.5859" style="stroke:#A80036;stroke-width:1.0;" width="10" x="174" y="91.5703"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="261.8828" style="stroke:#A80036;stroke-width:1.0;" width="10" x="327" y="121.9219"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="758.5" y="216.4922"/><rect fill="#FFFFFF" filter="url(#f96aebymynzby)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="886" y="276.8438"/><ellipse cx="4.5" cy="90.8203" rx="4" ry="4" style="stroke:#A80036;stroke-width:1.5;fill:none;"/><polygon fill="#A80036" points="162,87.5703,172,91.5703,162,95.5703,166,91.5703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="9" x2="168" y1="91.5703" y2="91.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="12" y="86.7139">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="23" y="86.7139">POST(.../api/Users,dto)</text><polygon fill="#A80036" points="315,117.9219,325,121.9219,315,125.9219,319,121.9219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="184" x2="321" y1="121.9219" y2="121.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="191" y="117.0654">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="202" y="117.0654">AddAsync(dto)</text><polygon fill="#A80036" points="590,164.625,600,168.625,590,172.625,594,168.625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="337" x2="596" y1="168.625" y2="168.625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="344" y="155.5928">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="230" x="355" y="147.417">create(dto.nome, dto.telefone,dto.email,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="193" x="355" y="163.7686">dto.dataNascimento, dto.morada)</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="77" x="602" y="129.9219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="614.5" y="151.4551">jogador</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="613" y="169.0645">: Jogador</text><polygon fill="#A80036" points="746.5,212.4922,756.5,216.4922,746.5,220.4922,750.5,216.4922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="337" x2="752.5" y1="216.4922" y2="216.4922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="344" y="211.6357">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="355" y="211.6357">AddAsync(jogador)</text><polygon fill="#A80036" points="874,272.8438,884,276.8438,874,280.8438,878,276.8438" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="337" x2="880" y1="276.8438" y2="276.8438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="344" y="271.9873">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="90" x="355" y="271.9873">CommitAsync()</text><polygon fill="#A80036" points="936,333.1953,946,337.1953,936,341.1953,940,337.1953" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="337" x2="942" y1="337.1953" y2="337.1953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="344" y="332.3389">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="355" y="332.3389">create()</text><rect fill="#FEFECE" filter="url(#f96aebymynzby)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="158" x="948" y="314.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="955" y="336.377">newDTO: JogadorDTO</text><polygon fill="#A80036" points="195,379.8047,185,383.8047,195,387.8047,191,383.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="189" x2="331" y1="383.8047" y2="383.8047"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="201" y="378.9482">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="212" y="378.9482">Success(newDTO)</text><polygon fill="#A80036" points="11,410.1563,1,414.1563,11,418.1563,7,414.1563" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="178" y1="414.1563" y2="414.1563"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="17" y="409.2998">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="28" y="409.2998">Success(newDTO)</text><!--MD5=[7751059c1a1dcce42e7fc10fe7999017]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":JogadoresController" as CTRL
+participant ":JogadorService" as SERV
+participant "jogador \n : Jogador" as JOG
+participant ":JogadorRepository" as REPO
+participant ":UnitOfWork" as UNIT
+participant "newDTO: JogadorDTO" as DTO
+?o->CTRL : POST(.../api/Users,dto)
+activate CTRL
+    CTRL->SERV: AddAsync(dto)
+    activate SERV
+        SERV->JOG**: create(dto.nome, dto.telefone,dto.email,\ndto.dataNascimento, dto.morada)
+        SERV->  REPO: AddAsync(jogador)
+        activate REPO
+        deactivate REPO
+        SERV->UNIT: CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERV-> DTO**: create()
+        SERV- -> CTRL : Success(newDTO)
+    deactivate SERV
+    <- -CTRL: Success(newDTO)
+deactivate CTRL
+
+@enduml
+
+@startuml
+
+autonumber
+
+participant ":JogadoresController" as CTRL
+participant ":JogadorService" as SERV
+participant "jogador \n : Jogador" as JOG
+participant ":JogadorRepository" as REPO
+participant ":UnitOfWork" as UNIT
+participant "newDTO: JogadorDTO" as DTO
+?o->CTRL : POST(.../api/Users,dto)
+activate CTRL
+    CTRL->SERV: AddAsync(dto)
+    activate SERV
+        SERV->JOG**: create(dto.nome, dto.telefone,dto.email,\ndto.dataNascimento, dto.morada)
+        SERV->  REPO: AddAsync(jogador)
+        activate REPO
+        deactivate REPO
+        SERV->UNIT: CommitAsync()
+        activate UNIT
+        deactivate UNIT
+        SERV-> DTO**: create()
+        SERV- -> CTRL : Success(newDTO)
+    deactivate SERV
+    <- -CTRL: Success(newDTO)
+deactivate CTRL
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

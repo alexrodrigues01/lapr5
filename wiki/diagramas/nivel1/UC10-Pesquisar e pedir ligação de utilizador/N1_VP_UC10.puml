@@ -1,0 +1,34 @@
+@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:System>>\nSocial Network Game" as SYSTEM
+
+activate USER
+
+USER -> SYSTEM: inicia pesquisa por jogadores que conheça na rede
+
+activate SYSTEM
+
+SYSTEM --> USER: apresenta lista de jogadores na rede
+
+deactivate SYSTEM
+
+USER -> SYSTEM: seleciona jogadores a pedir ligação
+
+activate SYSTEM
+
+SYSTEM --> USER: solicita confirmação do pedido
+
+deactivate SYSTEM
+
+USER -> SYSTEM: confirma pedido
+
+activate SYSTEM
+
+SYSTEM --> USER: informa que o pedido foi feito com sucesso
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml

@@ -1,0 +1,24 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>JOGADORES</h1>
+
+
+  <div *ngFor="let jogador of jogadores" >
+
+    <div class="pedido">
+      <b>
+        <p></p>
+        Nome: {{jogador.nome}}
+        <p></p>
+        Email: {{jogador.email}}
+        <p></p>
+        Telefone: {{jogador.telefone}}
+        <p></p>
+        <input  type="submit"  class="fadeIn fourth" value="Pedir Ligação" (click)="pedirLigacao(jogador)" >
+        <input  type="submit" class="fadeIn fourth" value="Ver Grafo" routerLink="/accounts/jogo" (click)="guardarInfo(jogador.id)">
+      </b>
+    </div>
+  </div>
+
+
+</div>
+

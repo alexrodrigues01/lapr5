@@ -1,0 +1,30 @@
+@startuml
+autonumber
+
+participant ":RelacoesController" as CTRL
+participant ":RelacaoService" as S
+participant ":RelacaoRepository" as REPO
+participant ":Relacao" as R
+participant ":UnitOfWork" as UOW
+participant ":RelacaoDTO" as DTO
+
+?o-> CTRL : PUT (.../api/Relacoes,dto)
+activate CTRL
+    CTRL -> S: UpdateAsync(dto)
+    activate S
+        S -> REPO: GetByIdAsync(dto.Id)
+        activate REPO
+        deactivate REPO
+        S -> R: AlteraForcaLigacao(dto.ForcaLigacao)
+        activate R
+        S -> R: AlteraTags(dto.Tags)
+        deactivate R
+        S-> UOW: CommitAsync()
+        activate UOW
+        deactivate UOW
+        S-> DTO **:  create()
+    S-->CTRL : Sucesso(novoDTO)
+    deactivate S
+    [o<-\ CTRL: Sucesso(novoDTO)
+deactivate CTRL
+@enduml

@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "359511d1-db86-43e8-9098-b87d2253ff94",
+		"name": "Pedido Ligação Varios utilizadores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Testes",
+			"item": [
+				{
+					"name": "Create User 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Jogador1\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Email\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql(\"hugo@gmail.com\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Telefone\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.telefone).to.eql(\"923949362\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Pais\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.pais).to.eql(\"Portugal\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Rua\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.rua).to.eql(\"Rua 1\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Localidade\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.localidade).to.eql(\"Maia\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches CodigoPostal\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.codigoPostal).to.eql(\"4478\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches DataNascimento\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataNascimento).to.eql(\"10/09/2000 00:00:00\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches LinkedInLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.linkedInLink).to.eql(\"dsffsdf\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches FacebookLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.facebookLink).to.eql(\"sdfsfs\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"idJogadorIntro1.1\",response.id);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Jogador1\",\r\n    \"Email\" : \"hugo@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Ford,BMW,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Jogador2\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Email\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql(\"hugo@gmail.com\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Telefone\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.telefone).to.eql(\"923949362\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Pais\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.pais).to.eql(\"Portugal\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Rua\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.rua).to.eql(\"Rua 1\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Localidade\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.localidade).to.eql(\"Maia\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches CodigoPostal\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.codigoPostal).to.eql(\"4478\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches DataNascimento\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataNascimento).to.eql(\"10/09/2000 00:00:00\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches LinkedInLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.linkedInLink).to.eql(\"dsffsdf\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches FacebookLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.facebookLink).to.eql(\"sdfsfs\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"idJogadorIntro2.1\",response.id);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Jogador2\",\r\n    \"Email\" : \"hugo@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Ford,BMW,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Jogador3\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Email\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql(\"hugo@gmail.com\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Telefone\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.telefone).to.eql(\"923949362\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Pais\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.pais).to.eql(\"Portugal\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Rua\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.rua).to.eql(\"Rua 1\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Localidade\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.localidade).to.eql(\"Maia\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches CodigoPostal\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.codigoPostal).to.eql(\"4478\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches DataNascimento\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataNascimento).to.eql(\"10/09/2000 00:00:00\")\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches LinkedInLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.linkedInLink).to.eql(\"dsffsdf\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Matches FacebookLink\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.facebookLink).to.eql(\"sdfsfs\")\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"idJogadorIntro3.1\",response.id);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Jogador3\",\r\n    \"Email\" : \"hugo@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"Ford,BMW,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pedidos Ligacao",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"idPedidos1\",response[0].id.value);\r",
+									"pm.globals.set(\"idPedidos2\",response[1].id.value);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/{{idJogadorIntro1.1}}/{{idJogadorIntro2.1}},{{idJogadorIntro3.1}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"{{idJogadorIntro1.1}}",
+								"{{idJogadorIntro2.1}},{{idJogadorIntro3.1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TearDown",
+			"item": [
+				{
+					"name": "Delete Pedido Ligacao 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/{{idPedidos1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"{{idPedidos1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pedido Ligacao 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/PedidosLigacao/{{idPedidos2}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"PedidosLigacao",
+								"{{idPedidos2}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"\r",
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorIntro1.1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorIntro1.1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"\r",
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorIntro2.1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorIntro2.1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"\r",
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorIntro3.1}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorIntro3.1}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

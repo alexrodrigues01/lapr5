@@ -1,0 +1,29 @@
+@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:System>>" as c4
+
+activate jog
+
+jog -> c4: Solicita a visualização do estado de humor
+
+activate c4
+c4 --> jog: mostra o estado de humor de jogador
+deactivate c4
+
+jog -> c4 : altera o estado de humor
+activate c4
+
+c4 --> jog : solicita confirmação de alteração
+deactivate c4
+
+jog -> c4 : confirma alteração
+activate c4
+c4 --> jog : confirma alteração do estado de humor
+deactivate c4
+
+deactivate jog
+
+
+@enduml

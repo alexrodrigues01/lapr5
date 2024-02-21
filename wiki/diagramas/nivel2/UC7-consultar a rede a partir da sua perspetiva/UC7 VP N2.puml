@@ -1,0 +1,31 @@
+@startuml
+autonumber
+
+actor "Jogador" as USER
+participant "<<C4:Container>>\n:Visualizacao" as S
+participant "<<C4:Container>>\n:Rede Social" as R
+
+USER -> S : Inicia a consulta em perspetiva da rede
+activate USER
+activate S
+
+S --> USER : Solicita qual o nível de separação pretendido
+deactivate S
+
+USER -> S : Introduz o nível
+activate S
+
+S --> USER : Solicita confirmação do nível
+deactivate S
+
+USER -> S : Confirma
+
+activate S
+S->R: Get RedeAmigos / {utilizador,nivel}
+activate R
+R-->S: redeAmigos (JSON)
+deactivate R
+S --> USER : Mostra a rede em perspetiva
+deactivate S
+
+@enduml

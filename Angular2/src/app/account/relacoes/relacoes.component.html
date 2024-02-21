@@ -1,0 +1,22 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>RELACOES</h1>
+
+  <div *ngFor="let relacao of relacoes" >
+
+    <div class="relacao">
+      <b>
+
+        Relacao com o jogador {{jogadores[relacoes.indexOf(relacao)].nome}}
+        <p></p>
+
+        Força ligacao: {{relacao.forcaLigacao}}
+        <p></p>
+        Força relacao: {{relacao.forcaRelacao}}
+        <p></p>
+        <input style="  margin-left: 16%" type="submit" class="fadeIn fourth" value="Editar relação" routerLink="/accounts/editRelacao" (click)="guardarRelacao(relacao)"  >
+        <input  type="submit" class="fadeIn fourth" value="Ver Grafo" routerLink="/accounts/jogo" (click)="guardarInfo(jogadores[relacoes.indexOf(relacao)].id)">
+
+      </b>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<body>
+<div class="container">
+  <div class="wrapper">
+    <section class="post">
+      <header>Comment</header>
+      <form action="#">
+        <div class="content">
+          <img src="https://www.ean.org/fileadmin/user/profile/full/0033Y00002v6gjLQAQ.png" alt="logo">
+          <div class="details">
+            <p>{{this.postService.jogadorEscolhido}}</p>
+            <div class="privacy">
+              <i class="fas fa-user-friends"></i>
+              <span style="margin-left: 7px;margin-right: 7px;">Friends</span>
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 20px">{{this.postService.postEscolhido.texto}}</p>
+
+        <div style="margin-top: 30px">
+          <textarea placeholder="Escreva aqui o seu comentário" id="textoComentario" [(ngModel)]="texto" name="texto"></textarea>
+          <button  id="comentar" (click)="comentar()">Comment</button>
+        </div>
+      </form>
+    </section>
+  </div></div>
+    <div *ngFor="let comentario of comments" class="container">
+      <div class="wrapper">
+        <section class="post">
+
+          <form action="#">
+            <div class="content">
+              <img src="https://www.ean.org/fileadmin/user/profile/full/0033Y00002v6gjLQAQ.png" alt="logo">
+              <div class="details">
+                <p>{{nomes[comments.indexOf(comentario)]}}</p>
+                <div class="privacy">
+                  17 de Janeiro às 13:24
+                </div>
+              </div>
+            </div>
+            <div style="padding-top: 20px">{{comentario.texto}}</div>
+          </form>
+
+        </section>
+
+      </div>
+    </div>
+
+
+
+</body>

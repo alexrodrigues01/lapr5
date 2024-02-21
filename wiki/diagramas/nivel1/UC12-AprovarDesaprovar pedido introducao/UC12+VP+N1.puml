@@ -1,0 +1,29 @@
+﻿@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:System>>" as c4
+
+activate jog
+
+jog -> c4: Solicita a lista de pedidos de introducao pendentes
+
+activate c4
+c4 --> jog: apresenta a lista de pedidos de introducao pendentes \n e solicita que selecione um
+deactivate c4
+
+jog -> c4 : seleciona o pedido de introducao que pretende aprovar/desaprovar         
+activate c4
+
+c4 --> jog : apresenta o pedido de introducao e solicita aprovação/desaprovação
+deactivate c4
+
+jog -> c4 : aprova/desaprova o pedido de introducao
+activate c4
+c4 --> jog : confirma o sucesso da aprovacao/desaprovacao do pedido
+deactivate c4
+
+deactivate jog
+
+
+@enduml

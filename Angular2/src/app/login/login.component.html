@@ -1,0 +1,27 @@
+<div id="panel" >
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Sign In </h2>
+
+      <p></p>
+
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" id="loginBotao" routerLink="/accounts" (click)="login()" class="fadeIn fourth" value="Log In">
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div class="formFooter">
+        <a class="underlineHover">Forgot Password?</a>
+        <p></p>
+        <a routerLink="/register" class="underlineHover" href="#">Sign up</a>
+        <p></p>
+      </div>
+
+    </div>
+  </div>
+</div>

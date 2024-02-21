@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Coding By codeithub- youtube.com/codeithub-->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FontAweome CDN Link for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <section class="post">
+      <header>Post</header>
+      <form action="#">
+        <div class="content">
+          <img src="https://www.ean.org/fileadmin/user/profile/full/0033Y00002v6gjLQAQ.png" alt="logo">
+          <div class="details">
+             <p>{{jogadorService.userValue.nome}}</p>
+            <div class="privacy">
+              <i class="fas fa-user-friends"></i>
+              <span style="margin-left: 7px;margin-right: 7px;">Friends</span>
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+        </div>
+        <textarea placeholder="What's on your mind?" spellcheck="false" id="textoPost" required #texto></textarea>
+        <textarea placeholder="Tags (separado por virgulas)" spellcheck="false" id="tagsPost" required #tags style="height: 20px"></textarea>
+        <button id="criarPost" (click)="createPost(texto.value,tags.value)">Post</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+
+
+<div *ngFor="let post of posts" class="container">
+  <div class="wrapper">
+    <section class="post">
+
+      <form action="#">
+        <div class="content">
+          <img src="https://www.ean.org/fileadmin/user/profile/full/0033Y00002v6gjLQAQ.png" alt="logo">
+          <div class="details">
+           <p>{{jogadores[posts.indexOf(post)]}}</p>
+            <div class="privacy">
+              17 de Janeiro às 13:24
+            </div>
+          </div>
+        </div>
+        <div style="padding-top: 20px">{{post.texto}}</div>
+
+        <div class="theme-emoji">
+          <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+          <i id="like-{{posts.indexOf(post)}}" class="far fa-heart" (click)="like($event)" ></i>
+          {{lenghtLista(post.likes)}}
+          <i id="dislike-{{posts.indexOf(post)}}" class="fas fa-thumbs-down" (click)="deslike($event)"></i>
+          {{lenghtLista(post.dislikes)}}
+          <button id="iddd" style="width: 20%;height: 30px; font-size: 18px;margin-top: 10px;pointer-events: all" routerLink="/accounts/comment" (click)="seeComments(post)">Comments</button>
+        </div>
+      </form>
+
+    </section>
+
+  </div>
+</div>
+
+
+<script>
+  const container = document.querySelector(".container"),
+    privacy = container.querySelector(".post .privacy"),
+    arrowBack = container.querySelector(".audience .arrow-back");
+
+  privacy.addEventListener("click", () => {
+    container.classList.add("active");
+  });
+
+  arrowBack.addEventListener("click", () => {
+    container.classList.remove("active");
+  });
+</script>
+
+</body>
+</html>

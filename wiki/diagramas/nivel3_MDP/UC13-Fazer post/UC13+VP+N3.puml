@@ -1,0 +1,47 @@
+﻿@startuml
+
+autonumber
+
+participant ":PostRoute" as R
+participant ":PostController" as CTRL
+participant ":PostService" as SERV
+participant "post:Post" as P
+participant ":PostRepository" as REPO
+participant ":PostMap" as MAP
+participant "postPer:IPostPersistence" as PP
+participant ":Model<IPostPersistence & Document>" as MPP
+participant "newPost: Post" as NP
+participant "newDTO: IPostDTO" as DTO
+
+?o->R : POST(.../api/posts,req)
+activate R
+    R->CTRL: createPost(req)
+    activate CTRL
+        CTRL->SERV: createPost(dto)
+        activate SERV
+            SERV-> P**: create(dto)
+            SERV-> REPO: save(post)
+            activate REPO
+                REPO->MAP: toPersistence(post)
+                activate MAP
+                    MAP->PP**: create()
+                deactivate MAP
+                REPO->MPP: create(postPer)
+                activate MPP
+                deactivate MPP
+                REPO->MAP: toDomain(postPer)
+                activate MAP
+                    MAP->NP**: create()
+                deactivate MAP  
+            deactivate REPO
+            SERV-> MAP: toDTO(newPost)
+            activate MAP
+                MAP-> DTO**: create()
+            deactivate MAP
+            SERV--> CTRL : Success(newDTO)
+        deactivate SERV
+        CTRL-->R: Success(newDTO)
+    deactivate CTRL
+    <--R: Success(newDTO)
+deactivate R
+@enduml

@@ -1,0 +1,13 @@
+
+
+<p></p>
+<select  class="form-control"  id="estado_selecionar"
+        required
+        name="estado" style="width: 200px;height: 50px;font-size: large; margin-left: 39%">
+  <option value="" disabled selected hidden> {{estado.estado}}</option>
+  <option *ngFor="let pow of estados" [value]="pow">{{pow}}</option>
+</select>
+<p></p>
+
+
+<input type="submit" style="margin-left: 33%"  class="fadeIn fourth" value="Atualizar Estado" (click)="atualizarEstadoHumor() " >

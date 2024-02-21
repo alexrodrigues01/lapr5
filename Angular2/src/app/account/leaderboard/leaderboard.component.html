@@ -1,0 +1,60 @@
+
+<div style="width: 100%; " >
+  <h1>Leaderboard Dimensão de Rede</h1>
+  <h1></h1>
+
+  <h1>Leaderboard Fortaleza de Rede</h1>
+</div>
+
+<table class="styled-table">
+
+  <thead>
+  <tr>
+    <th>Posição</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tbody *ngFor="let jogador of leaderBoardDim" >
+
+
+  <tr>
+    <td>{{leaderBoardDim.indexOf(jogador)+1 + "º"}}</td>
+    <td>{{jogador.nome}}</td>
+    <td>{{jogador.email}}</td>
+    <td>{{jogador.valor}}</td>
+  </tr>
+
+  <!-- and so on... -->
+  </tbody>
+</table>
+
+
+<table class="styled-table" style="margin-left: 12%">
+
+  <thead>
+  <tr>
+    <th>Posição</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tbody *ngFor="let jogador of leaderBoardFort" >
+
+
+  <tr>
+    <td>{{leaderBoardFort.indexOf(jogador)+1 + "º"}}</td>
+    <td>{{jogador.nome}}</td>
+    <td>{{jogador.email}}</td>
+    <td>{{jogador.valor}}</td>
+  </tr>
+
+  <!-- and so on... -->
+  </tbody>
+</table>
+
+

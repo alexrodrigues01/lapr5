@@ -1,0 +1,25 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>Tags</h1>
+  <hr>
+  <h2 style="margin-left: 35%"> Tags de todos os utilizadores </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter tags" style="margin-left: 37%" (click)="obterTagsUtilizadores()" >
+  <input type="text" id="tagsUtilizadores" class="fadeIn second" name="tamanho da rede" placeholder="Tags " style="margin-left: 8%" [(ngModel)]="tagsUsersString">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 35%"> Tags de todas as relações </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter tags" style="margin-left: 37%" (click)="obterTagsRelacoes()" >
+  <input type="text" id="tagsRelacoes" class="fadeIn second" name="tamanho da rede" placeholder="Tags " style="margin-left: 8%" [(ngModel)]="tagsRelacoesString">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 35%"> Tags do utilizador autenticado </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter tags" style="margin-left: 37%" (click)="obterTagsUtilizador()" >
+  <input type="text" id="tagsUtilizador" class="fadeIn second" name="tamanho da rede" placeholder="Tags " style="margin-left: 8%" [(ngModel)]="tagsUtilizadorString">
+  <hr>
+  <hr>
+  <h2 style="margin-left: 26%"> Tags das relações do utilizador autenticado </h2>
+  <input type="submit" class="fadeIn fourth" value="Obter tags" style="margin-left: 37%" (click)="obterTagsRelacoesJog()" >
+  <input type="text" id="tagsRelacoesJog" class="fadeIn second" name="tamanho da rede" placeholder="Tags " style="margin-left: 8%" [(ngModel)]="tagsRelacoesJogString">
+  <hr>
+</div>

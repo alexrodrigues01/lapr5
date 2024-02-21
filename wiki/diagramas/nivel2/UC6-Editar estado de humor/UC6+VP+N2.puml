@@ -1,0 +1,46 @@
+@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:Container>>\n:Visualização" as c4
+participant "<<C4:Container>>\n:Rede Social" as rs
+
+activate jog
+
+jog -> c4: Solicita a visualização do estado de humor
+
+activate c4
+
+c4->rs: GET estadohumor(utilizador)
+activate rs
+rs-->c4: estadohumor(JSON)
+deactivate rs
+
+c4 --> jog: mostra o estado de humor de jogador
+deactivate c4
+
+jog -> c4 : altera o estado de humor
+activate c4
+
+c4->c4:localDataValidation(dados,estadohumor)
+
+c4 --> jog : solicita confirmação de alteração
+deactivate c4
+
+jog -> c4 : confirma alteração
+activate c4
+
+c4->rs: PUT estadohumor{utilizador} dados-estadohumor
+activate rs
+rs->rs:serverDataValidation(dados,estadohumor)
+rs->rs: saveData(dados,estadohumor)
+
+rs-->c4: 202 OK
+deactivate rs
+
+c4 --> jog : confirma alteração do estado de humor
+deactivate c4
+
+deactivate jog
+
+@enduml

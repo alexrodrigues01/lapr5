@@ -1,0 +1,110 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+<h1>ALGORITMOS</h1>
+
+  <hr>
+  <h2 style="margin-left: 17%"> Determinar Tamanho da rede até um determinado nível </h2>
+  <input type="text" id="nível" class="fadeIn second" name="nível" placeholder="nível" style="margin-left: 6%"
+  [(ngModel)]="nivelTamanhoRede">
+  <input type="submit" class="fadeIn fourth" value="Obter tamanho" style="margin-left: 33%" (click)="obterTamanhoRede()">
+  <input type="text" id="tamanho da rede" class="fadeIn second" name="tamanho da rede" placeholder="tamanho da rede : {{resultadoTamanho.t}}" style="margin-left: 6%">
+<hr>
+
+  <hr>
+  <h2 style="margin-left: 22%"> Obter utilizadores que tenham X tags em comum </h2>
+  <input type="text" id="numero tags" class="fadeIn second" name="numero tags" placeholder="numero tags" style="margin-left: 6%" [(ngModel)]="numeroTags">
+  <input type="text" id="tags" class="fadeIn second" name="tags" placeholder="tags" style="margin-left: 6%" [(ngModel)]="tagsComum">
+  <input type="submit" class="fadeIn fourth" value="Obter Utilizadores" style="margin-left: 30%" (click)="obterComum()" >
+  <input type="text" id="utilizadores" class="fadeIn second" name="utilizadores"  placeholder="utilizadores : " style="margin-left: 6%"
+  [(ngModel)]="resultadoComum">
+  <hr>
+
+  <hr>
+  <h2> Sugerir conexões com outros utilizadores tendo por base as tags e conexões partilhadas (até determinado nível)  </h2>
+  <input type="text" id="nível1" class="fadeIn second" name="nível" placeholder="nível" style="margin-left: 6%" [(ngModel)]="nivelConexoes">
+  <input type="submit" class="fadeIn fourth" value="Obter Sugestões de conexão" style="margin-left: 26%" (click)="obterConexoes()" >
+  <input type="text" id="sugestoes" class="fadeIn second" name="utilizadores" placeholder="sugestões : " style="margin-left: 6%"
+  [(ngModel)]="resultadoConexoesString">
+  <hr>
+
+
+  <hr>
+  <h2 style="margin-left: 20%"> Determinar o caminho mais forte para um utilizador  </h2>
+  <input type="text" id="emailUser" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+  [(ngModel)]="emailForte">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="obterCaminhoForte()">
+  <input type="text" id="caminhoForte" class="fadeIn second" name="utilizadores" placeholder="caminho : " style="margin-left: 6%"
+  [(ngModel)]="resultadoCaminhoForteString">
+
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 20%"> Determinar o caminho mais curto para um utilizador  </h2>
+  <input type="text" id="emailUser1" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+  [(ngModel)]="emailCurto">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="obterCaminhoCurto()" >
+  <input type="text" id="caminhoCurto" class="fadeIn second" name="utilizadores" placeholder="caminho : " style="margin-left: 6%"
+  [(ngModel)]="resultadoCaminhoCurtoString">
+
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 20%"> Determinar o caminho mais seguro para um utilizador  </h2>
+  <input type="text" id="emailUser2" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+  [(ngModel)]="emailSeguro">
+  <input type="text" id="limiteForca" class="fadeIn second" name="limiteForca" placeholder="limite força ligacao" style="margin-left: 6%"
+  [(ngModel)]="limite">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" >
+  <input type="text" id="caminhoSeguro" class="fadeIn second" name="utilizadores" placeholder="caminho" style="margin-left: 6%">
+
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 20%"> DFS máximo ligacoes  </h2>
+  <input type="text" id="emailUser3" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+         [(ngModel)]="emailDFS">
+  <input type="text" id="n" class="fadeIn second" name="limiteForca" placeholder="Limite Ligacoes" style="margin-left: 6%"
+         [(ngModel)]="n">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="obterDFSMaxN()">
+  <input type="text" id="dfs_max_ligacoes" class="fadeIn second" name="utilizadores" placeholder="caminho" style="margin-left: 6%"   [(ngModel)]="resultadoDFSString">
+  <input type="text" id="custo" class="fadeIn second" name="utilizadores" placeholder="custo" style="margin-left: 6%"   [(ngModel)]="custo">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 20%"> DFS máximo ligacoes  Multicriterio</h2>
+  <input type="text" id="emailUser4" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+         [(ngModel)]="emailDFS2">
+  <input type="text" id="n1" class="fadeIn second" name="limiteForca" placeholder="Limite Ligacoes" style="margin-left: 6%"
+         [(ngModel)]="n2">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="dfsMaxN_multicriterio_R()">
+  <input type="text" id="dfs_max_ligacoes2" class="fadeIn second" name="utilizadores" placeholder="caminho" style="margin-left: 6%"   [(ngModel)]="resultadoDFSString2">
+  <input type="text" id="custo2" class="fadeIn second" name="utilizadores" placeholder="custo" style="margin-left: 6%"   [(ngModel)]="custo2">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 20%"> DFS máximo ligacoes Multicriterio Emoções</h2>
+  <input type="text" id="emailUser6" class="fadeIn second" name="emailUser" placeholder="email utilizador" style="margin-left: 6%"
+         [(ngModel)]="emailDFS3">
+  <input type="text" id="n3" class="fadeIn second" name="limiteForca" placeholder="Limite Ligacoes" style="margin-left: 6%"
+         [(ngModel)]="n3">
+  <input type="text" id="estados" class="fadeIn second" name="limiteForca" placeholder="Estados" style="margin-left: 6%"
+         [(ngModel)]="estados">
+  <input type="text" id="n2" class="fadeIn second" name="limiteForca" placeholder="Limite Estado Emocional" style="margin-left: 6%"
+         [(ngModel)]="limiteForca">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="plan_dfs_multi_emoR()">
+  <input type="text" id="dfs_max_ligacoes3" class="fadeIn second" name="utilizadores" placeholder="caminho" style="margin-left: 6%"   [(ngModel)]="resultadoEmocoes">
+  <input type="text" id="custo3" class="fadeIn second" name="utilizadores" placeholder="custo" style="margin-left: 6%"   [(ngModel)]="custoEmocoes">
+  <hr>
+
+  <hr>
+  <h2 style="margin-left: 25%">Maior grupo com N users e tags</h2>
+  <input type="text" id="n4" class="fadeIn second" name="limiteForca" placeholder="Limite Ligacoes" style="margin-left: 6%"
+         [(ngModel)]="n4">
+  <input type="text" id="tagss" class="fadeIn second" name="limiteForca" placeholder="Numero tags" style="margin-left: 6%"
+         [(ngModel)]="tags">
+  <input type="text" id="tagss" class="fadeIn second" name="limiteForca" placeholder="Tags" style="margin-left: 6%"
+         [(ngModel)]="obrigatorias">
+  <input type="submit" class="fadeIn fourth" value="Obter caminho" style="margin-left: 33%" (click)="plan_grupoR()">
+  <input type="text" id="resultadoGrupo" class="fadeIn second" name="utilizadores" placeholder="grupo" style="margin-left: 6%"   [(ngModel)]="resultadoGrupo">
+  <hr>
+
+</div>

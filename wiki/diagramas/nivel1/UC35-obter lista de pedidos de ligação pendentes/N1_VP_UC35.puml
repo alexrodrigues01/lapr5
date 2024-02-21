@@ -1,0 +1,18 @@
+﻿@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:System>>\nSocial Network Game" as SYSTEM
+
+activate USER
+
+USER -> SYSTEM: solicita apresentação da lista de pedidos de ligação pendentes
+
+activate SYSTEM
+
+SYSTEM --> USER: apresenta lista de pedidos de ligação pendentes
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml

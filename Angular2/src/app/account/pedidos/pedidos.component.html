@@ -1,0 +1,23 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+<h1>PEDIDOS LIGAÇÃO</h1>
+
+
+    <div *ngFor="let pedido of pedidos" >
+
+      <div class="pedido">
+        <b>
+          <p></p>
+          Pedido de {{jogadores[pedidos.indexOf(pedido)].nome}}
+          <p></p>
+          Email do jogador : {{jogadores[pedidos.indexOf(pedido)].email}}
+          <p></p>
+          Telefone do jogador: {{jogadores[pedidos.indexOf(pedido)].telefone}}
+          <p></p>
+          <input type="submit" id="aceitarPedido"  class="fadeIn fourth" value="Aceitar" (click)="aceitar(pedido.id)">
+          <input type="submit"  class="fadeIn fourth" value="Rejeitar" id="rejeitar" (click)="rejeitar(pedido.id)">
+        </b>
+      </div>
+    </div>
+
+
+</div>

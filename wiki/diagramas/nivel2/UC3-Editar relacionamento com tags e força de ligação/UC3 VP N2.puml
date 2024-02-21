@@ -1,0 +1,46 @@
+@startuml
+autonumber
+
+actor "Jogador" as USER
+participant "<<C4:Container>>\n:Visualização" as V
+participant "<<C4:Container>>\n:Rede Social" as S
+
+USER -> V : Solicita visualização das suas relações
+activate USER
+activate V
+V -> S: GET relacoes/{utilizador}
+activate S
+S --> V: relacoes (JSON)
+deactivate S
+V -->USER: Mostra as relações
+deactivate V
+
+USER -> V : Seleciona relação
+activate V
+V -> S: GET relacao/{utilizador}
+activate S
+S --> V: relacao (JSON)
+deactivate S
+V --> USER : Solicita alteração das tags e da força de ligação
+deactivate V
+
+USER -> V : Altera as tags e a força de ligação
+activate V
+V -> V: localDataValidation(dados,relacao)
+
+V --> USER : Solicita confirmação de alteração
+deactivate V
+
+USER -> V : Confirma alteração
+activate V
+V -> S: PUT relacao/{utilizador} dados-relacao
+activate S
+
+S->S: serverDataValidation(dados,relacao)
+S->S: saveData(dados,relacao)
+S --> V : 202 OK
+
+V --> USER : Confirma alteração das tags e da força de ligação
+deactivate V
+
+@enduml

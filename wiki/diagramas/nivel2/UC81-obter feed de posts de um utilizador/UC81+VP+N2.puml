@@ -1,0 +1,27 @@
+﻿@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:Container>>\nVisualização" as SYSTEM
+participant "<<C4:Container>>\nRede Social" as SYSTEM2
+
+activate USER
+
+USER -> SYSTEM: solicita apresentação do feed de posts
+
+activate SYSTEM
+
+SYSTEM -> SYSTEM2 : GET posts/user
+
+activate SYSTEM2
+
+SYSTEM2 --> SYSTEM : posts (JSON)
+
+deactivate SYSTEM2
+
+SYSTEM --> USER: apresenta feed de posts
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml

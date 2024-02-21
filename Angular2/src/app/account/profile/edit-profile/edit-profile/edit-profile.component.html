@@ -1,0 +1,38 @@
+
+
+<form >
+  <input  type="text" id="name" class="fadeIn second" name="name" placeholder="{{jogadorservice.userValue.nome}}"
+         required
+         [(ngModel)]="jogador.nome">
+  <input type="text" id="email" class="fadeIn second" name="email" placeholder="{{jogadorservice.userValue.email}}"
+         required
+         [(ngModel)]="jogador.email">
+
+  <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="{{jogadorservice.userValue.telefone}}"
+         required
+         [(ngModel)]="jogador.telefone">
+  <input type="text" id="pais" class="fadeIn third" name="pais" placeholder="{{jogadorservice.userValue.pais}}"
+         required
+         [(ngModel)]="jogador.pais">
+  <input type="text" id="rua" class="fadeIn third" name="rua" placeholder="{{jogadorservice.userValue.rua}}"
+         required
+         [(ngModel)]="jogador.rua">
+
+  <input type="text" id="localidade" class="fadeIn third" name="localidade" placeholder="{{jogadorservice.userValue.localidade}}"
+         required
+         [(ngModel)]="jogador.localidade">
+  <input type="text" id="codigoPostal" class="fadeIn third" name="codigoPostal" placeholder="{{jogadorservice.userValue.codigoPostal}}"
+         required
+         [(ngModel)]="jogador.codigoPostal">
+  <input type="text" id="perfilFacebook" class="fadeIn third" name="perfilFacebook" placeholder="{{jogadorservice.userValue.facebookLink}}"
+         required
+         [(ngModel)]="jogador.facebookLink">
+  <input type="text" id="perfilLinkedIn" class="fadeIn third" name="perfilLinkedIn" placeholder="{{jogadorservice.userValue.linkedInLink}}"
+         required
+         [(ngModel)]="jogador.linkedInLink">
+  <input type="text" id="interestTags" class="fadeIn third" name="tags interesse" placeholder="tags"
+         required
+         [(ngModel)]="jogador.interestTags">
+  <input style="  margin-left: 34%" type="submit" class="fadeIn fourth" value="Atualizar Dados" (click)="atualizarDados()">
+</form>
+

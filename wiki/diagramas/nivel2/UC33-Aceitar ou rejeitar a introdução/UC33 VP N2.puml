@@ -1,0 +1,53 @@
+@startuml
+autonumber
+
+actor "Jogador" as USER
+participant "<<C4:Container>>\n:Visualização" as V
+participant "<<C4:Container>>\n:Rede Social" as S
+
+ref over V : UC35 - obter lista de pedidos \nde ligação pendentes
+
+USER -> V : Seleciona pedido de ligação para tomar decisão
+activate USER
+activate V
+V -> S: GET pedidosLigacao/{id}
+activate S
+S --> V: pedidoLigacao (JSON)
+deactivate S
+V --> USER : Solicita que aceite ou rejeite
+deactivate V
+
+USER -> V : Toma a decisão
+activate V
+V -> V: localDataValidation(decisao,pedidoLigacao)
+
+V --> USER : Solicita confirmação da decisão
+deactivate V
+
+USER -> V : Confirma decisão
+activate V
+alt se for aceite, é criada uma relação
+V -> S: DELETE pedidoLigacao/{utilizador} 
+activate S
+S->S: delete(pedidoLigacao)
+S --> V : 202 OK
+deactivate S
+V -> S: POST relacao/{utilizador} dados-relacao
+activate S
+
+S->S: serverDataValidation(dados,relacao)
+S->S: saveData(dados,relacao)
+S --> V : 202 OK
+deactivate S
+else se for rejeitado, não é criada relação
+V -> S: DELETE pedidoLigacao/{utilizador} 
+activate S
+S->S: delete(pedidoLigacao)
+S --> V : 202 OK
+deactivate S
+end alt
+
+V --> USER : Confirma
+deactivate V
+
+@enduml

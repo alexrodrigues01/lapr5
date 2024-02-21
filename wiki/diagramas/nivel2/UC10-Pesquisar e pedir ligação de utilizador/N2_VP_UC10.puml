@@ -1,0 +1,59 @@
+@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:Container>>\nVisualização" as SYSTEM
+participant "<<C4:Container>>\nRede Social" as SYSTEM2
+
+activate USER
+
+USER -> SYSTEM: inicia pesquisa por jogadores que conheça na rede
+
+activate SYSTEM
+
+SYSTEM -> SYSTEM2 : GET jogadores / dados
+
+activate SYSTEM2
+
+note left SYSTEM2
+get filtrado com base no
+numero de telemovel, email
+ou nome ou tag
+end note
+
+SYSTEM2 --> SYSTEM : jogadores (JSON)
+
+deactivate SYSTEM2
+
+SYSTEM --> USER: apresenta lista de jogadores na rede
+
+deactivate SYSTEM
+
+USER -> SYSTEM: seleciona jogadores a pedir ligação
+
+activate SYSTEM
+
+SYSTEM --> USER: solicita confirmação do pedido
+
+deactivate SYSTEM
+
+USER -> SYSTEM: confirma pedido
+
+activate SYSTEM
+
+SYSTEM -> SYSTEM2 : POST pedidosligacao/dto
+
+activate SYSTEM2
+
+SYSTEM2 --> SYSTEM2 : Create(dto)
+
+SYSTEM2 --> SYSTEM : 202 OK
+
+deactivate SYSTEM2
+
+SYSTEM --> USER: informa que o pedido foi feito com sucesso
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml

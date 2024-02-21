@@ -1,0 +1,40 @@
+@startuml
+
+autonumber
+
+participant "EstadoHumorController" as controller
+participant "EstadoHumorService" as service
+participant "estadoHumor:\nEstadoHumor" as estadoHumor
+participant ":EstadoHumorRepository" as rep
+participant ":DbSet<EstadoHumor>" as db
+participant ":UnitOfWork" as u
+participant "newDTO:EstadoHumorDto" as dto
+
+activate controller
+
+?o->controller : PUT(.../api/estadoshumor,dto)
+
+activate service
+controller->service: AddAsync(dto)
+
+
+service->rep:estadoHumor=GetByIdAsync(dto.Id)
+activate rep
+deactivate rep
+
+service->estadoHumor:changeEstadoHumor(dto.Estado)
+
+activate estadoHumor
+deactivate estadoHumor
+
+service->u : CommitAsync()
+activate u
+deactivate u
+service->dto**:create(estadoHumor.Id.AsGuid(),estadoHumor.Estado.ToString(),estado.DataEstadoHumor.ToString())
+
+service-->controller:Success(newDTO)
+
+<--controller
+
+
+@enduml

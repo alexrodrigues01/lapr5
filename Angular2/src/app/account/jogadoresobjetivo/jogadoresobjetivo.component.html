@@ -1,0 +1,21 @@
+<div style="background: white;width: 900px;height: 100%;margin:0 auto; margin-top: 50px; padding: 30px;">
+  <h1>JOGADORES OBJETIVO</h1>
+
+  <div *ngFor="let jogador of jogadores" >
+
+    <div class="objetivo">
+      <b>
+        Nome: {{jogador.nome}}
+        <p></p>
+        Email: {{jogador.email}}
+        <p></p>
+        Telefone: {{jogador.telefone}}
+        <p></p>
+        <input style="  margin-left: 6%" type="submit" id="botaoPedidoLigacao" class="fadeIn fourth" value="Enviar Pedido Ligacao"  (click)="enviarPedido(jogador.id.toString())"  >
+        <input  type="submit" class="fadeIn fourth" value="Enviar Pedido Introducao" routerLink="/accounts/intermedios" (click)="guardarJogadorObjetivo(jogador.id.toString())"  >
+
+
+      </b>
+    </div>
+  </div>
+</div>

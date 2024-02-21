@@ -1,0 +1,67 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":IntroducaoComponent View" as CV
+participant ":IntroducaoComponent" as C
+participant "dto: PedidoLigacaoDTO" as DTO
+participant ":PedidoIntroducaoService" as SERV
+
+activate J
+    J->R : /account/introducao
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getPedidosIntroducao()
+        activate C
+            C->SERV : getPedidosIntroducao()
+                activate SERV
+                    SERV->o] : GET(.../api/introducoes/jogadorid)
+                    SERV<--/o] : listaPedidosIntroducao
+                    SERV-->C : listaPedidosIntroducao
+                deactivate SERV
+            C-->CV : listaPedidosIntroducao
+        deactivate C
+        CV-->J : show listaPedidosIntroducao
+    deactivate CV
+    alt
+    J->CV : aceita pedido
+    activate CV
+        CV->C : aceitar()
+        activate C
+            C-->DTO ** : create()
+            C->SERV : aceitar(dto)
+            activate SERV
+                SERV->o] : DELETE(.../api/introducoes/aprov1,dto)
+            deactivate SERV
+        deactivate C
+    deactivate CV
+    else                
+    J->CV : rejeita pedido
+    activate CV
+        CV->C : rejeitar()
+        activate C
+            C-->DTO ** : create()
+            C->SERV : rejeitar(dto)
+            activate SERV
+                SERV->o] : DELETE(.../api/introducoes/aprov0,dto)
+    end
+                SERV<--/o] : Sucesso(newDTO)
+                SERV-->C : Sucesso
+            deactivate SERV
+        C-->CV : Sucesso
+        deactivate C
+        CV-->J : Sucesso
+    deactivate CV
+deactivate J
+            
+        
+   
+        
+
+@enduml

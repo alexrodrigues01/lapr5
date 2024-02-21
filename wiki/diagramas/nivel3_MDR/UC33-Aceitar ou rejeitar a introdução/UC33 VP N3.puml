@@ -1,0 +1,39 @@
+@startuml
+autonumber
+
+participant ":PedidosLigacaoController" as CTRL1
+participant ":PedidoLigacaoService" as S1
+participant ":PedidoLigacaoRepository" as REPO1
+participant ":PedidoLigacao" as R1
+participant ":RelacoesController" as CTRL
+participant ":RelacaoService" as S
+participant ":RelacaoRepository" as REPO
+participant ":Relacao" as R
+participant ":UnitOfWork" as UOW
+participant ":RelacaoDTO" as DTO
+
+
+?o-> CTRL1 : DELETE (.../api/PedidoLigacao,dto)
+activate CTRL1
+    CTRL1 -> S1: DeleteAsync(pedidoLigacaoId,relacaoDto)
+    activate S1
+        S1 -> REPO1: GetByIdAsync(pedidoLigacaoId)
+                activate REPO1
+                deactivate REPO1
+        S1 -> REPO1: Remove(pedidoLigacao)
+        activate REPO1
+        deactivate REPO1
+        S1 -> REPO: AddAsync(relacao)
+                activate REPO
+                deactivate REPO
+                S1-> UOW: CommitAsync()
+                activate UOW
+                deactivate UOW
+                S1-> DTO **:  create()
+            S1-->CTRL1 : Sucesso(novoDTO)
+            deactivate S1
+            [o<-\ CTRL1: Sucesso(novoDTO)
+deactivate CTRL1
+
+
+@enduml

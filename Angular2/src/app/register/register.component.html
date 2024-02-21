@@ -1,0 +1,73 @@
+<div id="panel" >
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Sign Up </h2>
+
+      <p></p>
+
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="name" class="fadeIn second" name="name" placeholder="name"
+               required
+               [(ngModel)]="jogador.nome">
+        <input type="text" id="email" class="fadeIn second" name="email" placeholder="email"
+          required
+          [(ngModel)]="jogador.email">
+
+        <p>Data nascimento</p>
+        <input type="date" id="dataNascimento" class="fadeIn third" name ="dataNascimento" placeholder="data nascimento"
+          required
+               [(ngModel)]="jogador.dataNascimento">
+        <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="telefone"
+          required
+               [(ngModel)]="jogador.telefone">
+        <input type="text" id="pais" class="fadeIn third" name="pais" placeholder="pais"
+               required
+               [(ngModel)]="jogador.pais">
+        <input type="text" id="rua" class="fadeIn third" name="rua" placeholder="rua"
+               required
+               [(ngModel)]="jogador.rua">
+
+        <input type="text" id="localidade" class="fadeIn third" name="localidade" placeholder="localidade"
+               required
+               [(ngModel)]="jogador.localidade">
+        <input type="text" id="codigoPostal" class="fadeIn third" name="codigoPostal" placeholder="codigoPostal"
+               required
+               [(ngModel)]="jogador.codigoPostal">
+        <input type="text" id="perfilFacebook" class="fadeIn third" name="perfilFacebook" placeholder="perfilFacebook"
+        required
+               [(ngModel)]="jogador.facebookLink">
+        <input type="text" id="perfilLinkedIn" class="fadeIn third" name="perfilLinkedIn" placeholder="perfilLinkedIn"
+        required
+               [(ngModel)]="jogador.linkedInLink">
+        <input type="text" id="estadoHumor" class="fadeIn third" name="estadoHumor" placeholder="estadoHumor"
+        required
+               [(ngModel)]="jogador.estadoHumor">
+        <input type="text" id="interestTags" class="fadeIn third" name="tags interesse" placeholder="tags interesse"
+               required
+               [(ngModel)]="jogador.interestTags">
+        <p></p>
+
+        <div (load)="disableSubmit()">
+        <input  type="checkbox" required name="terms" id="terms" (change)="activateButton()">  Concordo com os termos e condições
+        </div>
+        <p></p>
+        <input type="submit" (click)="addCode()" value="Mostrar termos">
+        <input type="submit" id="submitRegister" class="fadeIn fourth" value="Registar" (click)="addJogador()">
+      </form>
+
+
+      <!-- Remind Passowrd -->
+      <div class="formFooter">
+        <a routerLink="/login" class="underlineHover" href="#">Already have an account?</a>
+        <p></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div  id="termos" style="margin-top: 30%; margin-left: 26%"></div>

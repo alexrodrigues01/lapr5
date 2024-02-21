@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "4e7383dc-fe16-4e33-8170-aa68783b7d93",
+		"name": "UC5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Criar Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"Miguel\");\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorUC5\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Miguel\",\r\n    \"Email\" : \"miguel@gmail.com\",\r\n    \"Telefone\" : \"916666666\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua do Miguel\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4470\",\r\n    \"DataNascimento\" : \"28/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/miguel\",\r\n    \"FacebookLink\" : \"www.facebook.com/miguel\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"14/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : \"{{idJogadorUC5}}\",\r\n    \"Nome\" : \"Miguel\",\r\n    \"Email\" : \"miguel@gmail.com\",\r\n    \"Telefone\" : \"916666666\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua do Miguel\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4470\",\r\n    \"DataNascimento\" : \"28/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/miguel\",\r\n    \"FacebookLink\" : \"www.facebook.com/miguel\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"14/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorUC5}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorUC5}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Nome\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nome).to.eql(\"NotMiguel\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Email\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql(\"notmiguel@gmail.com\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches telefone\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.telefone).to.eql(\"912222222\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Pais\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.pais).to.eql(\"Spain\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Rua\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.rua).to.eql(\"Rua do NotMiguel\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Localidade\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.localidade).to.eql(\"Desmaia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches CodigoPostal\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.codigoPostal).to.eql(\"4455\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches DataNascimento\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.dataNascimento).to.eql(\"29/11/2001 00:00:00\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches LinkedInLink\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.linkedInLink).to.eql(\"www.linkedin.com/notmiguel\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches FacebookLink\", function (){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.facebookLink).to.eql(\"www.facebook.com/notmiguel\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : \"{{idJogadorUC5}}\",\r\n    \"Nome\" : \"NotMiguel\",\r\n    \"Email\" : \"notmiguel@gmail.com\",\r\n    \"Telefone\" : \"912222222\",\r\n    \"Pais\": \"Spain\",\r\n    \"Rua\" : \"Rua do NotMiguel\",\r\n    \"Localidade\" : \"Desmaia\",\r\n    \"CodigoPostal\" : \"4455\",\r\n    \"DataNascimento\" : \"29/11/2001\", \r\n    \"LinkedInLink\" : \"www.linkedin.com/notmiguel\",\r\n    \"FacebookLink\" : \"www.facebook.com/notmiguel\",\r\n    \"interestTags\" :\"Ford,Cenas,Fiat\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"15/11/2021\"                \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorUC5}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorUC5}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TearDown",
+			"item": [
+				{
+					"name": "Remover Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorUC5}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorUC5}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

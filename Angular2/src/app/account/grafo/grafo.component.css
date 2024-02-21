@@ -1,0 +1,27 @@
+.page {
+  color: white;
+  background: #f1f5f9;
+}
+.page__box {
+  min-height: 10px;
+  background: #69b6f0;
+  margin: 0rem;
+  font-size: 36px;
+}
+.page__content {
+  min-height: calc(100vh - 178px);
+  border-radius: 10px;
+  margin-top: -2rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+}
+.page__content-data {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#gui-container { position: absolute; top: 10%; left: 2%; }
+
+
+

@@ -1,0 +1,37 @@
+﻿@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:Container>> Visualização" as vis
+participant "<<C4:Container>> Rede Social" as rede
+
+activate jog
+
+jog -> vis: Seleciona o post a comentar
+
+activate vis
+vis --> jog: solicita os dados necessários para o comentario (texto)
+deactivate vis
+
+jog -> vis : insere o texto
+activate vis
+vis->vis: localValidateInformation(texto) 
+vis --> jog : mostra o comentario a publicar
+deactivate vis
+
+jog -> vis : pressiona o botão para publicar
+activate vis
+vis->rede: POST texto comentario
+activate rede 
+rede-> rede: serverDataValidation(texto)
+rede->rede: addComentario(texto)
+rede --> vis: Comentario publicado
+deactivate rede
+
+vis --> jog : mostra o comentario publicado
+deactivate vis
+
+deactivate jog
+
+
+@enduml

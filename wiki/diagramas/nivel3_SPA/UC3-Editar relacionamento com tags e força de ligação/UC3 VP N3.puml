@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":RelacoesComponent View" as CV
+participant ":RelacoesComponent" as C
+participant ":EditRelacaoComponent View" as CVE
+participant ":EditRelacaoComponent" as CE
+participant "dto: RelacaoDTO" as DTO
+participant ":RelacaoService" as SERV
+
+activate J
+    J->R : /account/relacoes
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getRelacoes()
+        activate C
+            C->SERV : getRelacoes()
+                activate SERV
+                    SERV->o] : GET(.../api/relacoes/idjogador,id)
+                    SERV<--/o] : listaRelacoes
+                    SERV-->C : listaRelacoes
+                deactivate SERV
+            C-->CV : listaRelacoes
+        deactivate C
+        CV-->J : show listaRelacoes
+    deactivate CV
+    J->CVE : seleciona relacao e altera dados \n /account/edit-relacao
+    activate CVE
+        CVE->CE : atualizarDados()
+        activate CE
+            CE-->DTO ** : create()
+            CE->SERV : atualizarDados(dto)
+            activate SERV
+                SERV->o] : PUT(.../api/relacoes,dto)
+                SERV<--/o] : Sucesso(newDTO)
+                SERV-->CE : Sucesso
+            deactivate SERV
+            CE-->CVE : Sucesso
+        deactivate CE
+        CVE-->J : Sucesso
+    deactivate CVE
+deactivate J
+            
+        
+   
+        
+
+@enduml

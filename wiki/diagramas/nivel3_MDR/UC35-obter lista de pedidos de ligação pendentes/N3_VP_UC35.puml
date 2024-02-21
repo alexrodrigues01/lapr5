@@ -1,0 +1,21 @@
+﻿@startuml
+autonumber
+
+participant ":PedidosLigacaoController" as CONTROLLER
+participant ":PedidoLigacaoService" as SERVICE
+participant ":PedidoLigacaoRepository" as REPOSITORY
+
+?o-> CONTROLLER : GET pedidosligacao/idjogador
+activate CONTROLLER
+    CONTROLLER -> SERVICE : getPedidosLigacaoPendentes(idjogador)
+    activate SERVICE
+        SERVICE -> REPOSITORY : getPedidosLigacaoPendentes(idjogador)
+            activate REPOSITORY
+                REPOSITORY --> SERVICE : listaPedidosPendentes
+            deactivate REPOSITORY
+            SERVICE --> CONTROLLER : listaPedidosPendentes
+    deactivate SERVICE
+    [o<--\ CONTROLLER : listaPedidosPendentes
+deactivate CONTROLLER
+
+@enduml

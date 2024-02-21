@@ -1,0 +1,44 @@
+﻿@startuml
+
+actor "Jogador" as jog
+
+participant "<<C4:Container>>Visualizacao" as c4
+participant "<<C4:Container>>\n:Rede Social" as S
+
+
+activate jog
+
+jog -> c4: Solicita a lista de pedidos de introducao pendentes
+activate c4
+c4->S : Get pedidos/{utilizador}
+activate S
+S-->c4:pedidos(JSON)
+deactivate S
+c4 --> jog: apresenta a lista de pedidos de introducao pendentes \n e solicita que selecione um
+deactivate c4
+
+jog -> c4 : seleciona o pedido de introducao que pretende aprovar/desaprovar         
+activate c4
+c4->S : Get pedido/{utilizador}
+activate S
+S-->c4:pedido(JSON)
+deactivate S
+
+c4 --> jog : apresenta o pedido de introducao e solicita aprovação/desaprovação
+deactivate c4
+
+jog -> c4 : aprova/desaprova o pedido de introducao
+activate c4
+c4->S : Delete pedido/{utilizador}infoAprov
+activate S
+S->S: serverDataValidation(pedido,infoAprov)
+S->S: saveData(pedido,infoAprov)
+S-->c4:202 OK 
+deactivate S
+c4 --> jog : confirma o sucesso da aprovacao/desaprovacao do pedido
+deactivate c4
+
+deactivate jog
+
+
+@enduml

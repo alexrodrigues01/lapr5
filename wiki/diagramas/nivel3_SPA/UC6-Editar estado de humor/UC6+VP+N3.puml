@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":GetEstadoHumorComponent View" as CV
+participant ":GetEstadoHumorComponent" as C
+participant "dto: EstadoHumorDTO" as DTO
+participant ":EstadoHumorService" as SERV
+
+activate J
+    J->R : /account/profile/getestadohumor
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getEstadoHumor()
+        activate C
+            C->SERV : getEstadoHumorById()
+                activate SERV
+                    SERV->o] : GET(.../api/estadoshumor/idestadohumor)
+                    SERV<--/o] : estadoHumor
+                    SERV-->C : estadoHumor
+                deactivate SERV
+            C-->CV : estadoHumor
+        deactivate C
+        CV-->J : show estadoHumor
+    deactivate CV
+    J->CV : atualiza estado humor
+    activate CV
+        CV->C : atualizarEstadoHumor()
+        activate C
+            C-->DTO ** : create()
+            C->SERV : atualizarEstadoHumor(dto)
+            activate SERV
+                SERV->o] : PUT(.../api/estadohumor,dto)
+                SERV<--/o] : Sucesso(newDTO)
+                SERV-->C : Sucesso
+            deactivate SERV
+            C-->CV : Sucesso
+        deactivate C
+        CV-->J : Sucesso
+    deactivate CV
+deactivate J
+            
+        
+   
+        
+
+@enduml

@@ -1,0 +1,90 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":JogadoresObjetivoComponent View" as CV
+participant ":JogadoresObjetivoComponent" as C
+
+participant ":JogadoresIntermediosComponent View" as CVI
+participant ":JogadoresIntermediosComponent" as CI
+
+participant ":IntroduzirDadosIntroducaoComponent View" as CVD
+participant ":IntroduzirDadosIntroducaoComponent" as CD
+participant "dto: IntroducaoDTO" as DTO
+
+participant ":JogadorService" as SERV
+participant ":PedidoIntoducaoService" as SERV2
+
+
+activate J
+    J->R : /account/jogadoresobjetivo
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getJogadoresObjetivo()
+        activate C
+            C->SERV : getJogadoresObjetivo()
+                activate SERV
+                    SERV->o] : GET(.../api/jogadores/jogadoresobjetivo)
+                    SERV<--/o] : listaJogadoresObjetivo
+                    SERV-->C : listaJogadoresObjetivo
+                deactivate SERV
+            C-->CV : listaJogadoresObjetivo
+        deactivate C
+        CV-->J : show listaJogadoresObjetivo
+    deactivate CV
+    J->R : escolhe jogador objetivo e carrega no botao selecionar jogador objetivo \n /account/jogadores-intermedios
+    activate R
+        R->CVI : redirectTo()
+    deactivate R
+    activate CVI
+        CVI->CI : getJogadoresIntermedio()
+        activate CI
+            CI->SERV : getJogadoresIntermedio()
+                activate SERV
+                    SERV->o] : GET(.../api/jogadores/jogadorid&jogadorobjetivoid)
+                    SERV<--/o] : listaJogadoresIntermedio
+                    SERV-->CI : listaJogadoresIntermedio
+                deactivate SERV
+            CI-->CVI : listaJogadoresIntermedio
+        deactivate CI
+        CVI-->J : show listaJogadoresIntermedio
+    deactivate CVI
+    J->R : escolhe jogador intermedio e carrega no botao selecionar jogador intermedio \n /account/introduzir-dados-introducao
+    activate R
+        R->CVD : redirectTo()
+    deactivate R
+    activate CVD
+        CVD->CD : pedidoIntoducaoForm()
+        activate CD
+            CD-->CVD : pedidoIntoducaoForm()
+        deactivate CD
+        CVD-->J : show form
+    deactivate CVD
+    J->CVD : preenche o formulário e carrega no botão para enviar pedido introducao
+    activate CVD
+        CVD->CD : criarPedidoIntroducao()
+        activate CD
+            CD-->DTO ** : create()
+            CD->SERV2 : criarPedidoIntroducao(dto)
+            activate SERV2
+                SERV2->o] : POST(.../api/introducoes,dto)
+                SERV2<--/o] : Sucesso(newDTO)
+                SERV2-->CD : Sucesso
+            deactivate SERV2
+            CD-->CVD : Sucesso
+        deactivate CD
+        CVD-->J : Sucesso
+    deactivate CVD
+deactivate J
+            
+        
+   
+        
+
+@enduml

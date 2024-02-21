@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "866933b3-d498-4490-aeab-ffc119f9685a",
+		"name": "Rejeitar introdução",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Criar Jogador 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorC\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Jelito\",\r\n    \"Email\" : \"jel@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Trofa\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"ISEP,Praxe,Mazda,Informática\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Jogador 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idJogadorD\",response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\" : \"Rui\",\r\n    \"Email\" : \"rpinto@gmail.com\",\r\n    \"Telefone\" : \"923949362\",\r\n    \"Pais\": \"Portugal\",\r\n    \"Rua\" : \"Rua 1\",\r\n    \"Localidade\" : \"Maia\",\r\n    \"CodigoPostal\" : \"4478\",\r\n    \"DataNascimento\" : \"10/09/2000\", \r\n    \"LinkedInLink\" : \"dsffsdf\",\r\n    \"FacebookLink\" : \"sdfsfs\",\r\n    \"interestTags\" :\"ISEP,Anime,MCU,Informática\",\r\n    \"EstadoHumor\"   : \"Joyful\",\r\n    \"DataEstadoHumor\": \"21/03/2001\"                \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pedido Ligação 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"idPedido2\",response.id.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jogadorInicio\" :  \"{{idJogadorC}}\"  ,\r\n    \"jogadorObjetivo\" :  \"{{idJogadorD}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rejeitar Pedido Ligação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 404\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Tags\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tagsRelacao).to.eql(undefined);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Ligacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaLigacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Forca Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.forcaRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Matches Data Relacao\",function(){\r",
+									"    var jsonData=pm.response.json();\r",
+									"    pm.expect(jsonData.dataRelacao).to.eql(undefined)\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagsRelacao\" : \"\",\r\n    \"ForcaLigacao\": \"0\",\r\n    \"DataRelacao\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/pedidosligacao/{{idPedido2}},decis0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pedidosligacao",
+								"{{idPedido2}},decis0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tear Down",
+			"item": [
+				{
+					"name": "Remover Jogador 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorC}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorC}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Jogador 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Code 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var response = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/jogadores/{{idJogadorD}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"jogadores",
+								"{{idJogadorD}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

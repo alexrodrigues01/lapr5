@@ -1,0 +1,29 @@
+﻿@startuml
+
+actor "Utilizador Não registado" as jog
+
+participant "<<C4:System>>" as c4
+
+activate jog
+
+jog -> c4: Inicia o seu registo como utilizador
+
+activate c4
+c4 --> jog: solicita os dados necessários para o registo
+deactivate c4
+
+jog -> c4 : insere os dados 
+activate c4
+
+c4 --> jog : solicita confirmação dos dados de registo
+deactivate c4
+
+jog -> c4 : confirma os dados do registo
+activate c4
+c4 --> jog : confirma o sucesso do registo como utilizador
+deactivate c4
+
+deactivate jog
+
+
+@enduml

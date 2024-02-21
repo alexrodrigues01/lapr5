@@ -1,0 +1,53 @@
+﻿@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Jogador" as J
+
+participant ":Route" as R
+participant ":JogadoresObjetivoComponent View" as CV
+participant ":JogadoresObjetivoComponent" as C
+participant "dto: PedidoLigacaoDTO" as DTO
+participant ":JogadorService" as SERV
+
+activate J
+    J->R : /account/jogadoresobjetivo
+    activate R
+        R->CV : redirectTo()
+    deactivate R
+    activate CV
+        CV->C : getJogadoresObjetivo()
+        activate C
+            C->SERV : getJogadoresObjetivo()
+                activate SERV
+                    SERV->o] : GET(.../api/jogadores/jogadoresobjetivo)
+                    SERV<--/o] : listaJogadoresObjetivo
+                    SERV-->C : listaJogadoresObjetivo
+                deactivate SERV
+            C-->CV : listaJogadoresObjetivo
+        deactivate C
+        CV-->J : show listaJogadoresObjetivo
+    deactivate CV
+    J->CV : escolhe jogador e envia pedido
+    activate CV
+        CV->C : enviarPedido()
+        activate C
+            C-->DTO ** : create()
+            C->SERV : enviarPedido(dto)
+            activate SERV
+                SERV->o] : POST(.../api/PedidosLigacao,dto)
+                SERV<--/o] : Sucesso(newDTO)
+                SERV-->C : Sucesso
+            deactivate SERV
+            C-->CV : Sucesso
+        deactivate C
+        CV-->J : Sucesso
+    deactivate CV
+deactivate J
+            
+        
+   
+        
+
+@enduml

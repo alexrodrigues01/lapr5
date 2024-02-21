@@ -1,0 +1,27 @@
+﻿@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:Container>>\nVisualização" as SYSTEM
+participant "<<C4:Container>>\nRede Social" as SYSTEM2
+
+activate USER
+
+USER -> SYSTEM: solicita apresentação da lista de pedidos de ligação pendentes
+
+activate SYSTEM
+
+SYSTEM -> SYSTEM2 : GET pedidosligacao/id
+
+activate SYSTEM2
+
+SYSTEM2 --> SYSTEM : pedidosligacao (JSON)
+
+deactivate SYSTEM2
+
+SYSTEM --> USER: apresenta lista de pedidos de ligação pendentes
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="601.25px" preserveAspectRatio="none" style="width:701px;height:601px;" version="1.1" viewBox="0 0 701 601" width="701.25px" zoomAndPan="magnify"><defs><filter height="300%" id="fqrek9upo764y" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[a78c20b42c63128bf3525bb4c7824349]
+cluster social_net--><rect fill="#FFFFFF" filter="url(#fqrek9upo764y)" height="392.5" style="stroke:#000000;stroke-width:1.875;" width="617.5" x="67.1625" y="191.25"/><rect fill="#FFFFFF" height="12.5" style="stroke:#000000;stroke-width:1.875;" width="18.75" x="659.6625" y="197.5"/><rect fill="#FFFFFF" height="2.5" style="stroke:#000000;stroke-width:1.875;" width="5" x="657.1625" y="200"/><rect fill="#FFFFFF" height="2.5" style="stroke:#000000;stroke-width:1.875;" width="5" x="657.1625" y="205"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="308.4125" y="225.6665">&lt;&lt;C4:System&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="185" x="285.9125" y="247.6782">Social Network Game</text><!--MD5=[88d18168e6d1e746a0efa8c75f833c67]
+entity visual--><rect fill="#FEFECE" filter="url(#fqrek9upo764y)" height="81.5234" style="stroke:#A80036;stroke-width:1.875;" width="180" x="97.1625" y="439.375"/><rect fill="#FEFECE" height="12.5" style="stroke:#A80036;stroke-width:1.875;" width="18.75" x="252.1625" y="445.625"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="249.6625" y="448.125"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="249.6625" y="453.125"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="125" x="115.9125" y="482.5415">«C4:Container»</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="97.5" x="125.9125" y="504.5532">Visualização</text><!--MD5=[d61c2d006c5f92e084f3c9e5ef6e8bf1]
+entity social--><rect fill="#FEFECE" filter="url(#fqrek9upo764y)" height="81.5234" style="stroke:#A80036;stroke-width:1.875;" width="180" x="474.6625" y="269.375"/><rect fill="#FEFECE" height="12.5" style="stroke:#A80036;stroke-width:1.875;" width="18.75" x="629.6625" y="275.625"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="627.1625" y="278.125"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="627.1625" y="283.125"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="125" x="493.4125" y="312.5415">«C4:Container»</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="95" x="498.4125" y="334.5532">Rede Social</text><!--MD5=[99a448788b6505c87c4139df82f1945f]
+entity analise--><rect fill="#FEFECE" filter="url(#fqrek9upo764y)" height="81.5234" style="stroke:#A80036;stroke-width:1.875;" width="180" x="474.6625" y="461.875"/><rect fill="#FEFECE" height="12.5" style="stroke:#A80036;stroke-width:1.875;" width="18.75" x="629.6625" y="468.125"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="627.1625" y="470.625"/><rect fill="#FEFECE" height="2.5" style="stroke:#A80036;stroke-width:1.875;" width="5" x="627.1625" y="475.625"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="125" x="493.4125" y="505.0415">«C4:Container»</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="86.25" x="498.4125" y="527.0532">Análise RS</text><!--MD5=[989b2884a660dbd340b8d2f5f7fdd9e8]
+entity masterData--><ellipse cx="564.6625" cy="406.25" fill="#FEFECE" filter="url(#fqrek9upo764y)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="161.25" x="484.0375" y="445.6665">MasterData_RS_API</text><!--MD5=[eef1899250db69e700d3aa9c948e21c9]
+entity jogador--><ellipse cx="187.1625" cy="150" fill="#FEFECE" filter="url(#fqrek9upo764y)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="83.75" x="145.2875" y="189.4165">UI Jogador</text><!--MD5=[677601135f4fac6e24c4bf6ecbddb10b]
+entity nao_aut--><ellipse cx="187.1625" cy="83.75" fill="#FEFECE" filter="url(#fqrek9upo764y)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="225" x="74.6625" y="123.1665">UI Utilizador Não autenticado</text><!--MD5=[b5ba269d2bf76fca1f434d60cf342cfb]
+entity aut--><ellipse cx="187.1625" cy="17.5" fill="#FEFECE" filter="url(#fqrek9upo764y)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacingAndGlyphs" textLength="190" x="92.1625" y="56.9165">UI Utilizador Autenticado</text><!--MD5=[8a933852582907fa09688f23630bce96]
+link visual to masterData--><path d="M277.275,462.525 C363.8125,445.5 489.5125,420.7875 540.575,410.7375 " fill="none" id="visual-to-masterData" style="stroke:#A80036;stroke-width:1.25;"/><path d="M547.3361,398.6313 A11.25,11.25 0 0 0 551.4129 419.3776" fill="none" style="stroke:#A80036;stroke-width:1.875;"/><!--MD5=[d0d19e12b909cf9d75ca1b96f0339660]
+reverse link masterData to social--><path d="M564.6625,382.2125 C564.6625,371.75 564.6625,361.2875 564.6625,350.825 " fill="none" id="masterData-backto-social" style="stroke:#A80036;stroke-width:1.25;"/><path d="M575.234,391.1273 A11.25,11.25 0 0 0 554.091 391.1273" fill="none" style="stroke:#A80036;stroke-width:1.875;"/><!--MD5=[05e2a626071e036392de98811d0b0a8c]
+link visual to analise--><path d="M277.275,485.3375 C336.8375,488.9 414.9625,493.5875 474.525,497.1625 " fill="none" id="visual-analise" style="stroke:#A80036;stroke-width:1.25;"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacingAndGlyphs" textLength="120" x="315.9125" y="484.3689">Análise_RS_API</text><path d="M384.1939,500.5974 A12.5,12.5 0 0 0 385.252 482.9514" fill="#FFFFFF" style="stroke:#A80036;stroke-width:1.875;"/><ellipse cx="375.9" cy="491.2453" fill="#FFFFFF" rx="7.5" ry="7.5" style="stroke:#A80036;stroke-width:1.875;"/><!--MD5=[a62a10592b2998f826683e489c9b6873]
+link analise to masterData--><path d="M564.6625,461.5125 C564.6625,446.9875 564.6625,432.45 564.6625,417.9125 " fill="none" id="analise-masterData" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[03e6c8046d8cdef08803fdd161077c01]
+link jogador to social_net--><path d="M175.6125,153.8375 C143.4375,165.3125 53.5125,202.775 28.4125,270.625 C7.5,327.1625 7.5,485.3375 28.4125,541.875 C34.3625,557.9563 46.4906,568.1836 61.5146,574.4338 C62.4536,574.8244 63.404,575.1995 64.3648,575.5596 C64.8452,575.7396 65.3282,575.9158 65.8138,576.0883 C66.0566,576.1746 66.3,576.2599 66.544,576.3444 " fill="none" id="jogador-social_net" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[71bf4ddd1456ca03cd38037b52d51ad8]
+link nao_aut to social_net--><path d="M175.675,82.825 C142.8625,80.9125 49.6375,80.75 28.4125,138.125 C12.85,180.2 12.85,499.8 28.4125,541.875 C34.3625,557.9563 46.4906,568.1836 61.5146,574.4338 C62.4536,574.8244 63.404,575.1995 64.3648,575.5596 C64.8452,575.7396 65.3282,575.9158 65.8138,576.0883 C66.0566,576.1746 66.3,576.2599 66.544,576.3444 " fill="none" id="nao_aut-social_net" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[4fd6e5df354965234f9cd80eacb34534]
+link aut to social_net--><path d="M175.675,16.575 C142.8625,14.6625 49.6375,14.5 28.4125,71.875 C10.2875,120.85 10.2875,492.9 28.4125,541.875 C34.3625,557.9563 46.4906,568.1836 61.5146,574.4338 C62.4536,574.8244 63.404,575.1995 64.3648,575.5596 C64.8452,575.7396 65.3282,575.9158 65.8138,576.0883 C66.0566,576.1746 66.3,576.2599 66.544,576.3444 " fill="none" id="aut-social_net" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[d02b1d3b7bf6195d3aa05dbdaf99fc5b]
+@startuml
+left to right direction
+
+
+circle jogador as "UI Jogador"
+circle nao_aut as "UI Utilizador Não autenticado"
+circle aut as "UI Utilizador Autenticado"
+
+component social_net as "<<C4:System>> \n Social Network Game"{
+    component visual as "<<C4:Container>> \n  Visualização"
+    component social as "<<C4:Container>> \n Rede Social"
+    component analise as "<<C4:Container>> \n Análise RS"
+
+    circle masterData as "MasterData_RS_API"
+    visual -( masterData
+    masterData )- social
+    visual -0)- analise : ""Análise_RS_API""
+    analise - masterData
+
+}
+
+
+jogador - social_net
+nao_aut - social_net
+aut -social_net
+
+
+
+
+@enduml
+
+PlantUML version 1.2020.23(Sun Dec 13 19:14:58 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

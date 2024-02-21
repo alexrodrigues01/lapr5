@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="255px" preserveAspectRatio="none" style="width:559px;height:255px;background:#FFFFFF;" version="1.1" viewBox="0 0 559 255" width="559px" zoomAndPan="magnify"><defs><filter height="300%" id="f128e0oblybczb" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f128e0oblybczb)" height="52.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="65.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f128e0oblybczb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="468.5" y="121.9609"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="70" x2="70" y1="89.6094" y2="170.3125"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="473.5" x2="473.5" y1="89.6094" y2="170.3125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="5" y="86.5332">Utilizador Registado</text><ellipse cx="70.5" cy="15" fill="#FEFECE" filter="url(#f128e0oblybczb)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M70.5,23 L70.5,50 M57.5,31 L83.5,31 M70.5,50 L57.5,65 M70.5,50 L83.5,65 " fill="none" filter="url(#f128e0oblybczb)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="5" y="183.8457">Utilizador Registado</text><ellipse cx="70.5" cy="196.9219" fill="#FEFECE" filter="url(#f128e0oblybczb)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M70.5,204.9219 L70.5,231.9219 M57.5,212.9219 L83.5,212.9219 M70.5,231.9219 L57.5,246.9219 M70.5,231.9219 L83.5,246.9219 " fill="none" filter="url(#f128e0oblybczb)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f128e0oblybczb)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="148" x="397.5" y="35.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="421.5" y="56.9238">&lt;&lt;C4:System&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="404.5" y="74.5332">Social Network Game</text><rect fill="#FEFECE" filter="url(#f128e0oblybczb)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="148" x="397.5" y="169.3125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="421.5" y="190.8457">&lt;&lt;C4:System&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="404.5" y="208.4551">Social Network Game</text><rect fill="#FFFFFF" filter="url(#f128e0oblybczb)" height="52.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="65.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f128e0oblybczb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="468.5" y="121.9609"/><polygon fill="#A80036" points="456.5,117.9609,466.5,121.9609,456.5,125.9609,460.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="75.5" x2="462.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="82.5" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="363" x="93.5" y="117.1045">solicita apresentação da lista de pedidos de ligação pendentes</text><polygon fill="#A80036" points="81.5,148.3125,71.5,152.3125,81.5,156.3125,77.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="75.5" x2="472.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="87.5" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="279" x="98.5" y="147.4561">apresenta lista de pedidos de ligação pendentes</text><!--MD5=[22d853989604a5b415f5f9276ff29ebb]
+@startuml
+autonumber
+
+actor "Utilizador Registado" as USER
+participant "<<C4:System>>\nSocial Network Game" as SYSTEM
+
+activate USER
+
+USER -> SYSTEM: solicita apresentação da lista de pedidos de ligação pendentes
+
+activate SYSTEM
+
+SYSTEM - -> USER: apresenta lista de pedidos de ligação pendentes
+
+deactivate SYSTEM
+
+deactivate USER
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

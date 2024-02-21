@@ -1,0 +1,39 @@
+﻿@startuml
+
+autonumber
+
+participant "IntroducoesController" as controller
+participant "IntroducaoService" as service
+participant "introducao:\Introducao" as introducao
+participant ":IntroducaoRepository" as rep
+participant ":DbSet<Introducao>" as db
+participant ":UnitOfWork" as u
+participant "newDTO:IntroducaoDto" as dto
+
+activate controller
+
+?o->controller : Post(.../api/Introducoes,dto)
+
+
+
+activate service
+controller->service: AddAsync(dto)
+
+service->introducao**:introducao( MensagemIntroducaoIntermedio, MensagemIntroducaoObjetivo,\n JogadorInicio, JogadorIntermedio, JogadorObjetivo)
+
+service->rep:AddAsync(introducao)
+activate rep
+deactivate rep
+
+
+service->u : CommitAsync()
+activate u
+deactivate u
+service->dto**:create()
+
+service-->controller:Success(newDTO)
+
+<--controller
+
+
+@enduml

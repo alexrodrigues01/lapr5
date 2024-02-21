@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "5eb5ba00-602e-4052-9201-18c1890ef51a",
+		"name": "Criar Post, comentar e reagir",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Matches No post\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.response.to.have.body(\"[]\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/postsByUser/teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"postsByUser",
+						"teste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Matches User\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.utilizador).to.eql(\"teste\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Matches Text\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.texto).to.eql(\"Gosto de pão\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Matches Tags\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.tags).to.eql(\"ISEP,Praxe,BMW,NBA\");\r",
+							"});\r",
+							"console.log(response.id)\r",
+							"pm.globals.set(\"postId\",response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"utilizador\" : \"teste\",\r\n    \"texto\" : \"Gosto de pão\",\r\n    \"tags\" :\"ISEP,Praxe,BMW,NBA\"                 \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post criado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/postsByUser/teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"postsByUser",
+						"teste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comentar Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Matches User\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.utilizador).to.eql(\"teste2\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Matches Text\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.texto).to.eql(\"Não Gosto de pão\");\r",
+							"});\r",
+							"\r",
+							"pm.globals.set(\"comentarioId\",response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"texto\" : \"Não Gosto de pão\",\r\n    \"utilizador\" : \"teste2\",\r\n    \"post\" :\"{{postId}}\"              \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comentarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comentarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comentario efetuado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Matches User\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.utilizador).to.eql(\"teste2\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Matches Text\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.texto).to.eql(\"Não Gosto de pão\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comentarios/comentarioById/{{comentarioId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comentarios",
+						"comentarioById",
+						"{{comentarioId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reagir",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Matches User\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.likes).to.eql([\"teste\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : \"1\",\r\n    \"post\" : \"{{postId}}\",\r\n    \"userID\" :\"teste\"                 \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts/reacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"reacao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
